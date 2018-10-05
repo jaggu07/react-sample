@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   loginButton:{
     borderColor:'blue'
-  },
+  },                 
   forgetbutton:{
     color:'blue',
     textAlign: 'right',

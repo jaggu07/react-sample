@@ -1,14 +1,10 @@
-import React, { Component } from "react";
-import { 
-    View,
-    Button,
-    StyleSheet,
-    Text
-} from "react-native";
+import React, { Component } from 'react';
+import {StyleSheet, Text, View, Button, Image} from 'react-native';
 import Details from './Details';
 import {
     createStackNavigator,
   } from 'react-navigation'; 
+  import SwipeCards from './SwipeCards.js'  
 
 class MatchScreen extends Component {
     constructor(props){
@@ -18,12 +14,13 @@ class MatchScreen extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Button
+            <SwipeCards style={{flex: 1}} />
+                {/* <Button
                     title="Go to Jane's profile"
                     onPress={() =>
                     navigate('Details', { name: 'Jane' })
                     }
-                />
+                /> */}
             </View>
         );
     }

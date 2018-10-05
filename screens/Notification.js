@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { 
     View,
     Button,
-    StyleSheet
+    StyleSheet,ScrollView
+
 } from "react-native";
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import {
     createStackNavigator,
 } from 'react-navigation';
@@ -18,12 +20,28 @@ class NotificationScreen extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Button
-                    title="Go to detailed notification"
-                    onPress={() =>
-                    navigate('NotificationDetails')
-                    }
-                />
+            <ScrollView>
+                <Card>
+                    <CardTitle subtitle="Number 6"/>
+                    <CardContent text="Clifton, Western Cape" />
+                </Card>
+                <Card>
+                    <CardTitle subtitle="Number 6"/>
+                    <CardContent text="Clifton, Western Cape" />
+                </Card>
+                <Card>
+                    <CardTitle subtitle="Number 6"/>
+                    <CardContent text="Clifton, Western Cape" />
+                </Card>
+                <Card>
+                    <CardTitle subtitle="Number 6"/>
+                    <CardContent text="Clifton, Western Cape" />
+                </Card>
+                <Card>
+                    <CardTitle subtitle="Number 6"/>
+                    <CardContent text="Clifton, Western Cape" />
+                </Card>
+  </ScrollView>
             </View>
         );
     }
@@ -40,7 +58,6 @@ export default Notification;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
 });
