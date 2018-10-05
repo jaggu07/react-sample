@@ -4,7 +4,9 @@ import { View, TextInput, StyleSheet, Button, SafeAreaView, StatusBar, Text } fr
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { 
+      username: '',
+      password: ''};
   }
   static navigationOptions = {
     title: 'Login',
@@ -16,20 +18,21 @@ class Login extends Component {
         <TextInput
           placeholder="Username"
           style={styles.textBox}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(username) => this.setState({username})}
+          value={this.state.username}
         />
         <TextInput
           placeholder="Password"
+          secureTextEntry
           style={styles.textBox}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(password) => this.setState({password})}
+          value={this.state.password}
         />
         <Button
           style={styles.loginButton}
           title="Login"
           onPress={() =>
-            navigate('Profile', { name: 'Jane' })
+            alert('Details',this.state)
           }
         />
       </View>

@@ -7,24 +7,24 @@ import Notification from './Notification';
 
 
 const tabNav = createBottomTabNavigator({
-    TabItem1: {
+    profileTab: {
         screen: ViewProfile,
         navigationOptions: {
-            tabBarLabel:"Tab 1",
+            tabBarLabel:"Profile",
             tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
         }
     },
-    TabItem2: {
+    matchTab: {
         screen: Match,
         navigationOptions: {
-            tabBarLabel:"Tab 2",
+            tabBarLabel:"Match",
             tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
         }
     },
-    TabItem3: {
+    notificationTab: {
         screen: Notification,
         navigationOptions: {
-            tabBarLabel:"Tab 3",
+            tabBarLabel:"Notification",
             tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
         }
     }
@@ -34,9 +34,9 @@ const tabNav = createBottomTabNavigator({
             
             
         },
-        order:[ 'TabItem1', 'TabItem2', 'TabItem3' ],
+        order:[ 'profileTab', 'matchTab', 'notificationTab' ],
         animationEnabled: 'True',
-        initialRouteName: 'TabItem2'
+        initialRouteName: 'matchTab'
 });
 
 export default tabNav;
