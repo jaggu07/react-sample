@@ -1,58 +1,76 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Button, Platform, StatusBar, Text } from "react-native";
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { View, StyleSheet, Button, Text } from "react-native";
+import { Form, Icon, Input, InputGroup } from 'native-base';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      username: '',
+      email: '',
       password: ''};
   }
-  static navigationOptions = {
-    title: 'Login',
-  };
+  handleButtonPress() {
+    const { navigate } = this.props.navigation;
+    params = {
+      email: this.state.email,
+      password: this.state.password
+    }
+   console.log(JSON.stringify(params))
+   navigate('tabNav')
+  }
+  
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        {/* <FormLabel>Name</FormLabel>
-        <FormInput onChangeText={someFunction}/>
-        <FormValidationMessage>Error message</FormValidationMessage> */}
-        <TextInput
-          placeholder="Username"
-          style={styles.textBox}
-          onChangeText={(username) => this.setState({username})}
-          value={this.state.username}
-        />
-        <TextInput
-          placeholder="Password"
-          secureTextEntry
-          style={styles.textBox}
-          onChangeText={(password) => this.setState({password})}
-          value={this.state.password}
-        />
-        <Button
+        <Form style={{marginBottom:15}}>
+          <InputGroup borderType="underline">
+            <Icon name='ios-mail' style={{color:'#384850'}}/>
+            <Input
+              type="email"
+              placeholder="Email"
+              style={styles.textBox}
+              onChangeText={(email) => this.setState({email})}
+              value={this.state.email}
+              onSubmitEditing={(event) => { 
+              this.refs.SecondInput._root.focus();
+              }}
+            />
+          </InputGroup>
+          <InputGroup borderType="underline">
+            <Icon name='ios-lock' style={{color:'#384850'}}/>
+            <Input
+              placeholder="Password"
+              secureTextEntry
+              style={styles.textBox}
+              ref='SecondInput'
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}
+              onSubmitEditing={(event) => { 
+              this.handleButtonPress()
+              }}
+            />
+          </InputGroup>
+          <Button
           style={styles.loginButton}
           title="Login"
-          onPress={() =>
-            alert('Details',this.state)
-          }
-        />
+          icon={{name: 'check'}}
+          ref='SecondInput1'
+          onPress={() => { this.handleButtonPress() }}
+          />
+        </Form>
         <Text style={styles.forgetbutton}
           onPress={() =>
-            navigate('ForgotPassword', { name: 'Jane' })
+            navigate('ForgotPassword')
           }>Forget Password
-      </Text>
-      <Text style={styles.Signup}
-         >Don't have an account? <Text style={{color: 'red'}}
-         onPress={() =>
-          navigate('Signup')
-
-        }>
-          Sign up
         </Text>
-      </Text>
+        <Text style={styles.Signup}>Don't have an account? 
+          <Text style={{color: 'red'}}
+            onPress={() =>
+            navigate('Signup')
+          }> Sign up
+          </Text>
+        </Text>
       </View>
     );
   }
@@ -70,8 +88,10 @@ const styles = StyleSheet.create({
     borderColor: 'gray', 
     marginTop:'5%',
     marginBottom:'5%',
-    borderBottomWidth: Platform.OS === 'ios' ? 1: 0
-
+  },
+  Signup:{
+    textAlign: 'center',
+    margin:'3%',
   },
   loginButton:{
     borderColor:'blue'
@@ -80,10 +100,6 @@ const styles = StyleSheet.create({
     color:'blue',
     textAlign: 'right',
     margin:'5%',
-  },
-  Signup:{
-    textAlign: 'center',
-    margin:'3%',
   }
 })
 

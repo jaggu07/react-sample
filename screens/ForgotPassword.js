@@ -1,22 +1,43 @@
-import React, { Component } from "react";
-import { 
-    View,
-    Text,
-    StyleSheet,
-    Button
-} from "react-native";
+import React, { Component } from 'react';
+import { View, StyleSheet, Button } from "react-native";
+import { Form, Icon, Input, InputGroup } from 'native-base';
 
 class ForgetPassword extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = { 
+          email:''
+        };
+      }
+      handleButtonPress() {
         const { navigate } = this.props.navigation;
+        params = {
+          email: this.state.email
+        }
+        navigate('OTPScreen')
+       console.log(JSON.stringify(params))
+      }
+    render() {
         return (
             <View style={styles.container}>
-                <Text>ForgetPassword</Text>
+                <Form style={{marginBottom:15}}>
+                <InputGroup borderType="underline">
+                    <Icon name='ios-mail' style={{color:'#384850'}}/>
+                    <Input
+                    type="text"
+                    placeholder="Email"
+                    style={styles.textBox}
+                    onChangeText={(email) => this.setState({email})}
+                    value={this.state.email}
+                    onSubmitEditing = {(event)=> this.handleButtonPress()}
+                    />
+                </InputGroup>
+                </Form>
                 <Button
                     style={styles.loginButton}
                     title="Next"
                     onPress={() =>
-                        navigate('OTPScreen')
+                       this.handleButtonPress()
                     }
                     />
             </View>
@@ -28,7 +49,13 @@ export default ForgetPassword;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+        margin:'10%'
+    },
+    textBox:{
+        height: 40, 
+        width:300,
+        borderColor: 'gray', 
+        margin:'3%'
+      },
 });
