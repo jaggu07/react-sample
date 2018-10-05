@@ -1,16 +1,62 @@
-import React, { Component } from "react";
-import { 
-    View,
-    Text,
-    StyleSheet
-} from "react-native";
+import React, { Component } from 'react';
+import { View, StyleSheet, Button } from "react-native";
+import { Form, Icon, Input, InputGroup } from 'native-base';
 
 class ResetPassword extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+          password:'',
+          confirmPassword:''
+        };
+      }
+      handleButtonPress() {
+        const { navigate } = this.props.navigation;
+        params = {
+          password: this.state.password,
+          confirmPassword: this.state.confirmPassword
+        }
+        navigate('tabNav')
+       console.log(JSON.stringify(params))
+      }
     render() {
         return (
             <View style={styles.container}>
-                <Text>ResetPassword</Text>
-            </View>
+            <Form style={{marginBottom:15}}>
+            <InputGroup borderType="underline">
+                <Icon name='lock' style={{color:'#384850'}}/>
+                <Input
+                type="password"
+                placeholder="Password"
+                secureTextEntry
+                style={styles.textBox}
+                onChangeText={(password) => this.setState({password})}
+                value={this.state.password}
+                onSubmitEditing = {(event)=> this.refs.confirmPassword._root.focus()}
+                />
+            </InputGroup>
+            <InputGroup borderType="underline">
+                <Icon name='lock' style={{color:'#384850'}}/>
+                <Input
+                type="password"
+                placeholder="Confirm Password"
+                ref="confirmPassword"
+                secureTextEntry
+                style={styles.textBox}
+                onChangeText={(confirmPassword) => this.setState({confirmPassword})}
+                value={this.state.confirmPassword}
+                onSubmitEditing = {(event)=> this.handleButtonPress()}
+                />
+            </InputGroup>
+            </Form>
+            <Button
+                style={styles.loginButton}
+                title="Next"
+                onPress={() =>
+                   this.handleButtonPress()
+                }
+                />
+        </View>
         );
     }
 }
@@ -19,7 +65,13 @@ export default ResetPassword;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
+        margin:"10%",
         justifyContent: 'center'
-    }
+    },
+    textBox:{
+        height: 40, 
+        width:300,
+        borderColor: 'gray', 
+        margin:'3%'
+      },
 });

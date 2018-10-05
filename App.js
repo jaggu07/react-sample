@@ -22,7 +22,8 @@ const Route = createStackNavigator({
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,
-  }
+  },
+  initialRouteName:'Login'
  });
 
 export default class App extends Component {
