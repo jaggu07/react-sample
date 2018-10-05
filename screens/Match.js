@@ -8,7 +8,7 @@ import {
 import Details from './Details';
 import {
     createStackNavigator,
-  } from 'react-navigation';
+  } from 'react-navigation'; 
 
 class MatchScreen extends Component {
     constructor(props){

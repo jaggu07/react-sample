@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { AppRegistry, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native';
@@ -39,10 +39,16 @@ export default class App extends React.Component {
         />
         
         <Button
-          style={styles.SignupButton}
+          style={{backgroundColor: "rgba(92, 99,216, 1)",
+          width: 300,
+          height: 45,
+          borderColor: "transparent",
+          borderWidth: 0,
+          borderRadius: 5
+        }}
           title="SIGN UP"
           onPress={() =>
-            navigate('EditProfile', { name: 'Jane' })
+            navigate('EditProfile')
           }
         />
 
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
 	height: 40, 
 	width:300,
     borderColor: 'gray', 
-    margin:'5%'
+    margin:'3%'
   },
   SignupButton:{
     borderColor:'blue',
