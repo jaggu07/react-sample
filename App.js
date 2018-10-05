@@ -7,6 +7,7 @@ import tabNav from './screens/tabNav';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import OTPScreen from './screens/OTPScreen';
+import Signup from './screens/Signup';
 
 const Route = createStackNavigator({
   Login: { screen: Login },
@@ -15,6 +16,8 @@ const Route = createStackNavigator({
   ResetPassword: { screen: ResetPassword},
   OTPScreen:{ screen: OTPScreen},
   tabNav: { screen: tabNav}
+  tabNav: { screen: tabNav},
+  Signup: { screen: Signup}
 },
 {
   headerMode: 'none',

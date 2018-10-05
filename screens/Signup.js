@@ -9,7 +9,7 @@ export default class App extends React.Component {
     this.state = {text: ''};
   }
   render() {
-	const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         
@@ -42,7 +42,7 @@ export default class App extends React.Component {
           style={styles.SignupButton}
           title="SIGN UP"
           onPress={() =>
-            navigate('tabNav', { name: 'Jane' })
+            navigate('EditProfile', { name: 'Jane' })
           }
         />
 
@@ -66,7 +66,9 @@ const styles = StyleSheet.create({
     margin:'5%'
   },
   SignupButton:{
-    borderColor:'blue'
+    borderColor:'blue',
+    height: 40, 
+	width:300,
   },
 
 });
