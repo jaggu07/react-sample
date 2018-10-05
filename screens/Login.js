@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Button, SafeAreaView, StatusBar, Text } from "react-native";
+import { View, TextInput, StyleSheet, Button, Platform, StatusBar, Text } from "react-native";
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { 
+      username: '',
+      password: ''};
   }
   static navigationOptions = {
     title: 'Login',
@@ -13,29 +16,32 @@ class Login extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        {/* <FormLabel>Name</FormLabel>
+        <FormInput onChangeText={someFunction}/>
+        <FormValidationMessage>Error message</FormValidationMessage> */}
         <TextInput
           placeholder="Username"
           style={styles.textBox}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(username) => this.setState({username})}
+          value={this.state.username}
         />
         <TextInput
           placeholder="Password"
+          secureTextEntry
           style={styles.textBox}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
+          onChangeText={(password) => this.setState({password})}
+          value={this.state.password}
         />
         <Button
           style={styles.loginButton}
           title="Login"
           onPress={() =>
-            navigate('tabNav', { name: 'Jane' })
+            alert('Details',this.state)
           }
         />
         <Text style={styles.forgetbutton}
           onPress={() =>
-            navigate('Profile', { name: 'Jane' })
-
+            navigate('ForgotPassword', { name: 'Jane' })
           }>Forget Password
       </Text>
       <Text style={styles.Signup}
@@ -63,7 +69,9 @@ const styles = StyleSheet.create({
     width:300,
     borderColor: 'gray', 
     marginTop:'5%',
-    marginBottom:'5%'
+    marginBottom:'5%',
+    borderBottomWidth: Platform.OS === 'ios' ? 1: 0
+
   },
   loginButton:{
     borderColor:'blue'
