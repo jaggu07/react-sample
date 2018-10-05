@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import { 
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Button
 } from "react-native";
 
 class OTPScreen extends Component {
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Text>OTPScreen</Text>
+                <Text>OTP</Text>
+                <Button
+                    style={styles.loginButton}
+                    title="Next"
+                    onPress={() =>
+                        navigate('ResetPassword')
+                    }
+                    />
             </View>
         );
     }

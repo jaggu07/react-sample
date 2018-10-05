@@ -15,7 +15,6 @@ const Route = createStackNavigator({
   ForgotPassword: { screen: ForgotPassword},
   ResetPassword: { screen: ResetPassword},
   OTPScreen:{ screen: OTPScreen},
-  tabNav: { screen: tabNav}
   tabNav: { screen: tabNav},
   Signup: { screen: Signup}
 },

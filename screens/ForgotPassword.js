@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { 
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Button
 } from "react-native";
 
 class ForgetPassword extends Component {
@@ -15,7 +16,7 @@ class ForgetPassword extends Component {
                     style={styles.loginButton}
                     title="Next"
                     onPress={() =>
-                        navigate('ResetPassword')
+                        navigate('OTPScreen')
                     }
                     />
             </View>

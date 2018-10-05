@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Button, SafeAreaView, StatusBar, Text } from "react-native";
+import { View, TextInput, StyleSheet, Button, Platform, StatusBar, Text } from "react-native";
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 class Login extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class Login extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        {/* <FormLabel>Name</FormLabel>
+        <FormInput onChangeText={someFunction}/>
+        <FormValidationMessage>Error message</FormValidationMessage> */}
         <TextInput
           placeholder="Username"
           style={styles.textBox}
@@ -37,8 +41,7 @@ class Login extends Component {
         />
         <Text style={styles.forgetbutton}
           onPress={() =>
-            navigate('Profile', { name: 'Jane' })
-
+            navigate('ForgotPassword', { name: 'Jane' })
           }>Forget Password
       </Text>
       <Text style={styles.Signup}
@@ -66,7 +69,9 @@ const styles = StyleSheet.create({
     width:300,
     borderColor: 'gray', 
     marginTop:'5%',
-    marginBottom:'5%'
+    marginBottom:'5%',
+    borderBottomWidth: Platform.OS === 'ios' ? 1: 0
+
   },
   loginButton:{
     borderColor:'blue'
