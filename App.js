@@ -4,11 +4,13 @@ import { createStackNavigator } from 'react-navigation';
 import Login from './screens/Login';
 import Profile from './screens/Profile';
 import tabNav from './screens/tabNav';
+import Signup from './screens/Signup';
 
 const Route = createStackNavigator({
   Login: { screen: Login },
   Profile: { screen: Profile },
-  tabNav: { screen: tabNav}
+  tabNav: { screen: tabNav},
+  Signup: { screen: Signup}
 },
 {
   headerMode: 'none',

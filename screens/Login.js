@@ -29,9 +29,24 @@ class Login extends Component {
           style={styles.loginButton}
           title="Login"
           onPress={() =>
-            navigate('Profile', { name: 'Jane' })
+            navigate('tabNav', { name: 'Jane' })
           }
         />
+        <Text style={styles.forgetbutton}
+          onPress={() =>
+            navigate('Profile', { name: 'Jane' })
+
+          }>Forget Password
+      </Text>
+      <Text style={styles.Signup}
+         >Don't have an account? <Text style={{color: 'red'}}
+         onPress={() =>
+          navigate('Signup')
+
+        }>
+          Sign up
+        </Text>
+      </Text>
       </View>
     );
   }
@@ -45,12 +60,22 @@ const styles = StyleSheet.create({
   },
   textBox:{
     height: 40, 
+    width:300,
     borderColor: 'gray', 
-    borderBottomWidth: 1,
-    margin:'5%'
+    marginTop:'5%',
+    marginBottom:'5%'
   },
   loginButton:{
     borderColor:'blue'
+  },
+  forgetbutton:{
+    color:'blue',
+    textAlign: 'right',
+    margin:'5%',
+  },
+  Signup:{
+    textAlign: 'center',
+    margin:'3%',
   }
 })
 
