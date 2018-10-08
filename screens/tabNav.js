@@ -11,21 +11,21 @@ const tabNav = createBottomTabNavigator({
         screen: ViewProfile,
         navigationOptions: {
             tabBarLabel:"Profile",
-            tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name={"user-circle-o"} size={20} color={tintColor} />
         }
     },
     matchTab: {
         screen: Match,
         navigationOptions: {
             tabBarLabel:"Match",
-            tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name={"window-restore"} size={20} color={tintColor} />
         }
     },
     notificationTab: {
         screen: Notification,
         navigationOptions: {
             tabBarLabel:"Notification",
-            tabBarIcon: ({ tintColor }) => <Icon name={"home"} size={30} color={tintColor} />
+            tabBarIcon: ({ tintColor }) => <Icon name={"bell-o"} size={20} color={tintColor} />
         }
     }
 }, {
