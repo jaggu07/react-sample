@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Button, Image,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Button, Image} from 'react-native';
 import Details from './Details';
 import {
     createStackNavigator,
@@ -7,6 +7,9 @@ import {
   import SwipeCards from './SwipeCards.js'  
 
 class MatchScreen extends Component {
+    static navigationOptions = {
+        title: 'Match',
+      };
     constructor(props){
         super(props);
     }
@@ -14,7 +17,6 @@ class MatchScreen extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigate('Details')}>
             <SwipeCards style={{flex: 1}} 
              onPress={() =>
                 navigate('Details')
@@ -23,10 +25,9 @@ class MatchScreen extends Component {
                 <Button
                     title="Go to Jane's profile"
                     onPress={() =>
-                    navigate('Details')
+                    navigate('Details', { name: 'Jane' })
                     }
                 />
-             </TouchableOpacity>
             </View>
         );
     }

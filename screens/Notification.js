@@ -5,6 +5,9 @@ import { createStackNavigator,} from 'react-navigation';
 import NotificationDetails from './NotificationDetails';
 
 class NotificationScreen extends Component {
+    static navigationOptions = {
+        title: 'Notification',
+      };
     constructor(props){
         super(props);
     }
