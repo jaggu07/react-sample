@@ -100,12 +100,14 @@ class NotificationDetails extends Component {
                     <Button 
                             title="Accept"
                             color="#841584"
+                            onPress={()=>console.log()}
                             />
                     </View>
                     <View style={styles.ButtonColumn}>
                     <Button
                             title="Decline"
                             color="#841584"
+                            onPress={()=>console.log()}
                             />
                     </View>
                 </View>

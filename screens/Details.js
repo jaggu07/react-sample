@@ -97,10 +97,14 @@ class Details extends Component {
                 <Text style={ styles.Education }>Bachelor's (Required)</Text>
 
 
-                <Button style={styles.ApplyButton}
-                title="APPLY"
-                color="#841584"
-                />
+                <View style={styles.ApplyButton}>
+            
+                    <Button 
+                            title="Apply"
+                            color="#841584"
+                            onPress={()=>console.log()}
+                            />
+                </View>
 
                 </ScrollView>
                 </Card>
@@ -122,8 +126,8 @@ const styles = StyleSheet.create({
         marginLeft:'5%',
     },
     ApplyButton: {
-        color:'red',
-        justifyContent: 'center'
+       
+        justifyContent: 'space-between',
     },
     JobSummery:{
         color:'#000',
