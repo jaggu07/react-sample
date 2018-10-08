@@ -38,7 +38,7 @@ class EditProfile extends Component {
 					<TouchableOpacity onPress = {() => console.log("pressed")}>
 						<Animated.Image
 							style={[styles.editImage,{ opacity: fadeAnim}]}
-							source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+							source={{uri: 'http://engineering.indeedblog.com/wp-content/uploads/2017/12/react-native-1024x631.png'}}
 							
 						/>
 					</TouchableOpacity>
@@ -82,7 +82,7 @@ class EditProfile extends Component {
               onChangeText={(email) => this.setState({email})}
               value={this.state.email}
               ref = "email"
-              onSubmitEditing = {(event)=> this.refs.password._root.focus()}
+              onSubmitEditing = {(event)=> this.refs.experience._root.focus()}
             />
           </InputGroup>
 					<InputGroup borderType="underline">

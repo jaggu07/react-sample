@@ -33,7 +33,7 @@ class ViewProfileScreen extends Component {
 				<View style={styles.proContainer}>
 					<Image
 						style={styles.proImage}
-						source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+						source={{uri: 'http://engineering.indeedblog.com/wp-content/uploads/2017/12/react-native-1024x631.png'}}
 					/>
 					<View>
 						<Text style={styles.proName}>John</Text>
