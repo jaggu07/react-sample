@@ -1,14 +1,7 @@
 import React, { Component } from "react";
-import { 
-    View,
-    Button,
-    StyleSheet,ScrollView
-
-} from "react-native";
+import { View, Button,StyleSheet,ScrollView,TouchableOpacity} from "react-native";
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {
-    createStackNavigator,
-} from 'react-navigation';
+import { createStackNavigator,} from 'react-navigation';
 import NotificationDetails from './NotificationDetails';
 
 class NotificationScreen extends Component {
@@ -21,26 +14,42 @@ class NotificationScreen extends Component {
         return (
             <View style={styles.container}>
             <ScrollView>
-                <Card>
+
+            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+                <Card pointerEvents="none">
                     <CardTitle subtitle="Number 6"/>
                     <CardContent text="Clifton, Western Cape" />
                 </Card>
-                <Card>
+            </TouchableOpacity>
+               
+            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+                <Card pointerEvents="none">
                     <CardTitle subtitle="Number 6"/>
                     <CardContent text="Clifton, Western Cape" />
                 </Card>
-                <Card>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+                <Card pointerEvents="none">
                     <CardTitle subtitle="Number 6"/>
                     <CardContent text="Clifton, Western Cape" />
                 </Card>
-                <Card>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+                <Card pointerEvents="none">
                     <CardTitle subtitle="Number 6"/>
                     <CardContent text="Clifton, Western Cape" />
                 </Card>
-                <Card>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+                <Card pointerEvents="none">
                     <CardTitle subtitle="Number 6"/>
                     <CardContent text="Clifton, Western Cape" />
                 </Card>
+            </TouchableOpacity>
+
   </ScrollView>
             </View>
         );
@@ -52,7 +61,7 @@ const Notification = createStackNavigator({
     NotificationDetails: { screen: NotificationDetails },
   });
 
-  
+
 export default Notification;
 
 const styles = StyleSheet.create({
