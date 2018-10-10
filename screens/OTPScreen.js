@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
+import HeaderComponent from '../components/headerComponent';
 
 class OTPScreen extends Component {
     constructor(props) {
@@ -19,6 +20,8 @@ class OTPScreen extends Component {
       }
     render() {
         return (
+            <View >
+            <HeaderComponent title={ 'OTP' } back={'arrow-back'} navigationData={this.props.navigation} />
             <View style={styles.container}>
                 <Form style={{marginBottom:15}}>
                 <InputGroup borderType="underline">
@@ -41,6 +44,7 @@ class OTPScreen extends Component {
                     }
                     />
             </View>
+            </View>
         );
     }
 }
@@ -48,7 +52,6 @@ export default OTPScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
         margin:'10%'
     },

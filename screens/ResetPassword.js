@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
+import HeaderComponent from '../components/headerComponent';
 
 class ResetPassword extends Component {
     constructor(props) {
@@ -16,11 +17,13 @@ class ResetPassword extends Component {
           password: this.state.password,
           confirmPassword: this.state.confirmPassword
         }
-        navigate('tabNav')
+        navigate('Login')
        console.log(JSON.stringify(params))
       }
     render() {
         return (
+            <View >
+            <HeaderComponent title={ 'Reset Password' } back={'arrow-back'} navigationData={this.props.navigation} />
             <View style={styles.container}>
             <Form style={{marginBottom:15}}>
             <InputGroup borderType="underline">
@@ -57,6 +60,7 @@ class ResetPassword extends Component {
                 }
                 />
         </View>
+        </View>
         );
     }
 }
@@ -64,7 +68,7 @@ export default ResetPassword;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        
         margin:"10%",
         justifyContent: 'center'
     },

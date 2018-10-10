@@ -1,35 +1,48 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Button, Text } from "react-native";
+import { View, StyleSheet, Button, Text, Image, Dimensions } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
+import { login } from '../api/auth';
+
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.handleButtonPress = this.handleButtonPress.bind(this);
     this.state = { 
       email: '',
       password: ''};
   }
-  handleButtonPress() {
+  async handleButtonPress() {
     const { navigate } = this.props.navigation;
     params = {
       email: this.state.email,
       password: this.state.password
     }
+    await login();
+    navigate('matchTab');
    console.log(JSON.stringify(params))
-   navigate('tabNav')
+  
   }
   
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Form style={{marginBottom:15}}>
+      <View  style={styles.container1}>
+        <Image
+            style={styles.imageLogin}
+          source={{uri: 'http://www.intrawallpaper.com/static/images/hd-dark-wallpapers-4_CWDKYIC.jpg'}}
+        />    
+      </View>
+      <View  style={styles.container2}>
+        <Form>
           <InputGroup borderType="underline">
-            <Icon name='ios-mail' style={{color:'#384850'}}/>
+            <Icon name='ios-mail' style={{color:'white'}}/>
             <Input
               type="email"
               placeholder="Email"
               style={styles.textBox}
+              placeholderTextColor="white"
               onChangeText={(email) => this.setState({email})}
               value={this.state.email}
               onSubmitEditing={(event) => { 
@@ -38,11 +51,12 @@ class Login extends Component {
             />
           </InputGroup>
           <InputGroup borderType="underline">
-            <Icon name='ios-lock' style={{color:'#384850'}}/>
+            <Icon name='ios-lock' style={{color:'white'}}/>
             <Input
               placeholder="Password"
               secureTextEntry
               style={styles.textBox}
+              placeholderTextColor="white"
               ref='SecondInput'
               onChangeText={(password) => this.setState({password})}
               value={this.state.password}
@@ -71,6 +85,7 @@ class Login extends Component {
           }> Sign up
           </Text>
         </Text>
+        </View>
       </View>
     );
   }
@@ -79,27 +94,40 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    justifyContent:'center',
+  },
+  container1:{
+    flex:2,
+  },
+  container2:{
+    flex:2,
     margin:'10%'
   },
   textBox:{
     height: 40, 
     width:300,
-    borderColor: 'gray', 
+    borderColor: 'white', 
     marginTop:'5%',
     marginBottom:'5%',
+    color:'white'
   },
   Signup:{
     textAlign: 'center',
     margin:'3%',
+    color:'white'
   },
   loginButton:{
-    borderColor:'blue'
+    borderColor:'blue',
+    backgroundColor:'white'
   },                 
   forgetbutton:{
     color:'blue',
     textAlign: 'right',
     margin:'5%',
+  },
+  imageLogin:{
+    width:Dimensions.get('window').width,
+    height:Dimensions.get('window').height,
+
   }
 })
 

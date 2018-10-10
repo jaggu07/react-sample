@@ -3,6 +3,7 @@ import {  View, Text, StyleSheet, Button, Image } from "react-native";
 import { createStackNavigator } from 'react-navigation';
 import EditProfile from'./EditProfile';
 import { Picker, Icon } from "native-base";
+import { logout } from '../api/auth';
 
 class ViewProfileScreen extends Component {
 	constructor(props){
@@ -10,8 +11,14 @@ class ViewProfileScreen extends Component {
 		this.state = {
 			selectedSalary: "key1",
 			selectedLocation: "key1"
-    };
+	};
+	this.onLogout = this.onLogout.bind(this);
 	}
+	async onLogout() {
+		await logout();
+		this.props.navigation.navigate('Login');
+	  }
+
 	onValueChangeSalary(value: string) {
     this.setState({
       selectedSalary: value
@@ -86,7 +93,7 @@ class ViewProfileScreen extends Component {
 				<Button 
 					style={{marginTop:20}}
 					title="Logout"
-					onPress = { () => navigate('Login')}
+					onPress={this.onLogout}
 				/>
 			</View>
 		);

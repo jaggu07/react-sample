@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { View, ActivityIndicator, StyleSheet } from 'react-native'
+import { getRootNavigator } from './appNavigation'
+import { isLoggedIn } from './api/auth'
 
-import Login from './screens/Login';
-import Profile from './screens/Profile';
-import tabNav from './screens/tabNav';
-import ForgotPassword from './screens/ForgotPassword';
-import ResetPassword from './screens/ResetPassword';
-import OTPScreen from './screens/OTPScreen';
-import Signup from './screens/Signup';
+export default class Root extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      loggedIn: false
+    };
+  }
 
-const Route = createStackNavigator({
-  Login: { screen: Login },
-  Profile: { screen: Profile },
-  ForgotPassword: { screen: ForgotPassword},
-  ResetPassword: { screen: ResetPassword},
-  OTPScreen:{ screen: OTPScreen},
-  tabNav: { screen: tabNav},
-  Signup: { screen: Signup}
-},
-{
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  },
-  initialRouteName:'Login'
- });
+  async componentDidMount() {
+    const loggedIn = await isLoggedIn();
+    this.setState({ loggedIn, loading: false });
+  }
 
-export default class App extends Component {
   render() {
-    return (
-      <Route />
-    );
+    if (this.state.loading) {
+      return (
+        <View style={styles.base}>
+          <ActivityIndicator size='small' />
+        </View>
+      )
+    }
+
+    const RootNavigator = getRootNavigator(this.state.loggedIn);
+    return <RootNavigator />
   }
 }
+
+const styles = StyleSheet.create({
+  base: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})

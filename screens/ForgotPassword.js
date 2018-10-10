@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
-
-class ForgetPassword extends Component {
+import HeaderComponent from '../components/headerComponent';
+ 
+class ForgotPassword extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -19,7 +20,9 @@ class ForgetPassword extends Component {
       }
     render() {
         return (
-            <View style={styles.container}>
+            <View >
+            <HeaderComponent title={ 'Forgot Password' } back={'arrow-back'} navigationData={this.props.navigation} />
+               <View style={styles.container}>
                 <Form style={{marginBottom:15}}>
                 <InputGroup borderType="underline">
                     <Icon name='ios-mail' style={{color:'#384850'}}/>
@@ -40,15 +43,16 @@ class ForgetPassword extends Component {
                        this.handleButtonPress()
                     }
                     />
+                    </View>
             </View>
         );
     }
 }
-export default ForgetPassword;
+export default ForgotPassword;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+       
         justifyContent: 'center',
         margin:'10%'
     },

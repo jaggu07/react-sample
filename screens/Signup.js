@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { TextInput, View , Button, StyleSheet} from 'react-native';
+import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { Form, Icon, Input, InputGroup } from 'native-base';
+import HeaderComponent from '../components/headerComponent';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,7 +26,10 @@ export default class App extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <View >
+      <HeaderComponent title={ 'signup' } back={'arrow-back'} navigationData={this.props.navigation} />
+      <KeyboardAvoidingView>
+      <ScrollView style={styles.container}>
         <Form style={{marginBottom:15}}>
           <InputGroup borderType="underline">
             <Icon name='ios-person' style={{color:'#384850'}}/>
@@ -89,7 +93,8 @@ export default class App extends Component {
             this.handleButtonPress()
           }
         />
- 
+        </ScrollView>
+        </KeyboardAvoidingView> 
       </View>
     );
   }
@@ -98,9 +103,8 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     margin: '10%',
-    justifyContent: 'center',
+    marginBottom:0
   },
   textBox:{
 	height: 40, 
