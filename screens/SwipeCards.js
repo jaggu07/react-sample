@@ -3,7 +3,7 @@
  
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
- 
+ import Details from './Details';
 import SwipeCards from 'react-native-swipe-cards';
  
 class Card extends React.Component {
