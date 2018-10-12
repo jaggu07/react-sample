@@ -4,6 +4,7 @@ import { Header } from "react-native-elements";
 
 class HeaderComponent extends Component {
 	render() {
+		if(JSON.stringify(this.props.navigationData.state)){
 		return (
 			<Header
 				backgroundColor="#488aff"
@@ -11,6 +12,14 @@ class HeaderComponent extends Component {
 				centerComponent={{ text: this.props.title.toUpperCase(), style:  styles.titleComponent   }}
 			/>
 		);
+		}else{
+			return (
+				<Header
+					backgroundColor="#488aff"
+					centerComponent={{ text: this.props.title.toUpperCase(), style:  styles.titleComponent   }}
+				/>
+			)
+		}
 	}
 }
 export default HeaderComponent;

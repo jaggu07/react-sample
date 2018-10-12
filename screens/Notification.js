@@ -3,11 +3,12 @@ import { View, Button,StyleSheet,ScrollView,TouchableOpacity} from "react-native
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import { createStackNavigator,} from 'react-navigation';
 import NotificationDetails from './NotificationDetails';
+import HeaderComponent from '../components/headerComponent';
 
 class NotificationScreen extends Component {
     static navigationOptions = {
-        title: 'Notification',
-      };
+        header: <HeaderComponent title={ 'Notification' } back={'arrow-back'} navigationData={'match'} />
+    };
     constructor(props){
         super(props);
     }

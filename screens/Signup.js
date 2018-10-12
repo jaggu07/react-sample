@@ -21,7 +21,7 @@ export default class App extends Component {
       email: this.state.email,
       password: this.state.password
     }
-    navigate('EditProfile')
+    navigate('UpdateProfile')
    console.log(JSON.stringify(params))
   }
   render() {

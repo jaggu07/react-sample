@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Button, Text, Image, Dimensions } from "react-native";
+import { View, StyleSheet, Button, Text, Image, Dimensions, Platform } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
 import { login } from '../api/auth';
 
@@ -50,7 +50,7 @@ class Login extends Component {
               }}
             />
           </InputGroup>
-          <InputGroup borderType="underline">
+          <InputGroup borderType="underline" style={{marginBottom:10}}>  
             <Icon name='ios-lock' style={{color:'white'}}/>
             <Input
               placeholder="Password"
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   loginButton:{
     borderColor:'blue',
-    backgroundColor:'white'
+    color: Platform.OS=='ios'?'black':'black'
   },                 
   forgetbutton:{
     color:'blue',

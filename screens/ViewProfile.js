@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import EditProfile from'./EditProfile';
 import { Picker, Icon } from "native-base";
 import { logout } from '../api/auth';
+import HeaderComponent from '../components/headerComponent';
 
 class ViewProfileScreen extends Component {
 	constructor(props){
@@ -30,7 +31,7 @@ class ViewProfileScreen extends Component {
     });
   }
 	static navigationOptions = {
-			title: 'Profile',
+			header: <HeaderComponent title={ 'Profile' } back={'arrow-back'} navigationData={'match'} />
 	};
 
 	render() {
@@ -103,11 +104,8 @@ class ViewProfileScreen extends Component {
 const ViewProfile = createStackNavigator({
     ViewProfileScreen: ViewProfileScreen,
     EditProfile: { screen: EditProfile },
-},
-{
-  
- 
- });
+
+});
 
 
 export default ViewProfile;
