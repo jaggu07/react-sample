@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity, ListView,Animated, ScrollView, KeyboardAvoidingView } from "react-native";
-import { Form, Icon, Input, InputGroup, Textarea } from 'native-base';
-
+import { View, Text, StyleSheet, TouchableOpacity, ListView,Animated, ScrollView, KeyboardAvoidingView } from "react-native";
+import { Form, Input, InputGroup, Textarea, Button } from 'native-base';
+import { Subheader } from 'react-native-material-ui';
+import { Icon } from 'react-native-elements';
+import { Picker } from "native-base";
 
 var SampleArray = [] ;
 
@@ -9,16 +11,24 @@ class FormProfile extends Component {
   
   constructor(props){
     super(props);
-    
+    var years=['2000','2001','2002']
+    var qualificationList =['Bachelor', 'Master', 'Doctorate' ]
+    var experienceYears = ['Intern','Junior','Mid-level','Senior','Lead']
 		this.state = {
 			fadeAnim: new Animated.Value(0),
       firstName: 'John',
       lastName: 'John',
       email:'John@gmail.com',
-      experience:'2 yrs',
+      experienceYears:experienceYears,
+      experience:'Intern',
       summary:'',
       skills:'',
-      test:[]
+      test:[],
+      years:years,
+      fromYear:'2000',
+      toYear:'2002',
+      qualificationList:qualificationList,
+      qualification:'Bachelor'
       
     }
     this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1!==r2})
@@ -34,7 +44,24 @@ class FormProfile extends Component {
 			}
 		).start(); // Start the animation
   }
-  
+  onValueChangefromYear(value) {
+    this.setState({
+      fromYear: value
+    });
+    console.log(this.state)
+  }
+  onValueChangetoYear(value) {
+    this.setState({
+      toYear: value
+    });
+    console.log(this.state)
+  }
+  onValueChangeExperience(value) {
+    this.setState({
+      experience: value
+    });
+    console.log(this.state)
+	}
   addSkills (){
     SampleArray.push( this.state.skills );
 
@@ -68,14 +95,17 @@ class FormProfile extends Component {
               />
             </TouchableOpacity>
             <Button 
-              title="Change Photo"
+              transparent
+              style={styles.editPicButton}
               onPress = { () => console.log("Button pressed")}
-            />
+            ><Text style={styles.editPicButtontext}>Change Photo</Text>
+            </Button>
           </View>
           <View >
-            <Form style={{margin:20}}>
+            <Form >
+            <Text  style={styles.subHeader}>PERSONAL DETAILS</Text>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+                <Icon name='person' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="First Name"
@@ -86,7 +116,7 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+                <Icon name='person' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="Last Name"
@@ -98,7 +128,7 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-mail' style={{color:'#384850'}}/>
+                <Icon name='mail' style={{color:'#384850'}}/>
                 <Input
                 type="email"
                 placeholder="Email"
@@ -110,21 +140,9 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-briefcase' style={{color:'#384850'}}/>
-                <Input
-                type="text"
-                placeholder="Experience"
-                style={styles.textBox}
-                onChangeText={(experience) => this.setState({experience})}
-                value={this.state.experience}
-                ref = "experience"
-                onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
-                />
-              </InputGroup>
-              <InputGroup borderType="underline" style={styles.inputgroupStyle}>
                 <Icon name='list' style={{color:'#384850'}}/>
                 <Textarea 
-                rowSpan={5} 
+                rowSpan={3} 
                 underlined 
                 style={styles.textArea}
                 onChangeText={(summary) => this.setState({summary})}
@@ -134,8 +152,105 @@ class FormProfile extends Component {
                 
                 />
               </InputGroup>
+
+              <Text style={styles.subHeader}>COMPANY DETAILS</Text>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                <Icon name='account-balance' style={{color:'#384850'}}/>
+                <Input
+                type="text"
+                placeholder="Company Name"
+                style={styles.textBox}
+                onChangeText={(companyName) => this.setState({companyName})}
+                value={this.state.companyName}
+                ref = "companyName"
+                onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
+                />
+              </InputGroup>
+              <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='location' type="evilicon" style={{color:'#384850', position: 'absolute',top:10}}/>
+                <Textarea 
+                rowSpan={3} 
+                underlined 
+                style={styles.textArea}
+                onChangeText={(companyAddress) => this.setState({companyAddress})}
+                placeholder="Company Address" 
+                value={this.state.companyAddress}
+                ref = "companyAddress"
+                
+                />
+              </InputGroup>
+              <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='computer' style={{color:'#384850'}}/>
+                <Input
+                type="text"
+                placeholder="Role/Designation"
+                style={styles.textBox}
+                onChangeText={(designation) => this.setState({designation})}
+                value={this.state.designation}
+                ref = "designation"
+                onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
+                />
+              </InputGroup>
+              
+              <Text  style={styles.subHeader}>EXPERIENCE DETAILS</Text>
+              <View style={styles.proContainer}>
+              <Icon name='ios-briefcase' type="ionicon" style={{color:'#384850'}}/>
+                <Text style={styles.propreName}>Experience</Text>
+                <Picker
+                  mode="dropdown"
+                  iosHeader="Select your Salary"
+                  iosIcon={<Icon name="md-arrow-dropdown" type="ionicon"  style={{ color: "#007aff", fontSize: 25 }} />}
+                  style={styles.proPicker}
+                  selectedValue={this.state.experience}
+                  onValueChange={this.onValueChangeExperience.bind(this)}
+                >
+                  {this.state.experienceYears.map((member,key) => <Picker.Item label={member} value={member} key={key}/>)}
+                </Picker>
+              </View>
+              {/* <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='ios-briefcase' type="ionicon" style={{color:'#384850'}}/>
+                <Input
+                type="text"
+                placeholder="Experience"
+                style={styles.textBox}
+                onChangeText={(experience) => this.setState({experience})}
+                value={this.state.experience}
+                ref = "experience"
+                onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
+                />
+              </InputGroup> */}
+              <View style={styles.proContainer}>
+              <Icon name='date-range' style={{color:'#384850'}}/>
+                <Text style={styles.propreName}>From(years)</Text>
+                <Picker
+                  mode="dropdown"
+                  iosHeader="Years"
+                  iosIcon={<Icon name="md-arrow-dropdown" type="ionicon"  style={{ color: "#007aff", fontSize: 25 }} />}
+                  style={styles.proPicker}
+                  selectedValue={this.state.fromYear}
+                  onValueChange={this.onValueChangefromYear.bind(this)}
+                >
+                  {this.state.years.map((member,key) => <Picker.Item label={member} value={member} key={key} />)}
+                </Picker>
+              </View>
+              <View style={styles.proContainer}>
+              <Icon name='date-range' style={{color:'#384850'}}/>
+                <Text style={styles.propreName}>To(years)</Text>
+                <Picker
+                  mode="dropdown"
+                  iosHeader="Select your Salary"
+                  iosIcon={<Icon name="md-arrow-dropdown" type="ionicon"  style={{ color: "#007aff", fontSize: 25 }} />}
+                  style={styles.proPicker}
+                  selectedValue={this.state.toYear}
+                  onValueChange={this.onValueChangetoYear.bind(this)}
+                >
+                  {this.state.years.map((member,key) => <Picker.Item label={member} value={member} key={key}/>)}
+                </Picker>
+              </View>
+
+              <Text  style={styles.subHeader}>SKILL SET</Text>
+              <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='lightbulb-outline' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="Skills"
@@ -145,8 +260,8 @@ class FormProfile extends Component {
                 ref = "skills"
                 onSubmitEditing = {(event)=> this.addSkills()}
                 />
+                 <Icon name='check' color='green' onPress = {(event)=> this.addSkills()}/>
               </InputGroup>
-              
               <ListView
                 style={styles.listStyle}
                 dataSource={this.dataSource.cloneWithRows(this.state.test)}
@@ -158,34 +273,37 @@ class FormProfile extends Component {
                       style={styles.skillSetList}
                     ><Text style={styles.skillSetText}>{item}</Text>
                     <TouchableOpacity onPress={() => this.removeSkills(rowID)} style={styles.removeIcon}>
-                      <Icon name='ios-close' style={{color:'#384850', alignContent:"flex-end"}}/>
+                      <Icon name='ios-close-circle-outline' type="ionicon" color="red" style={{color:'#384850', alignContent:"flex-end"}}/>
                     </TouchableOpacity>
                   </View>
             
                 }
               />
               
-              {/* <InputGroup borderType="underline">
-                <Icon name='ios-lock' style={{color:'#384850'}}/>
-                <Input
-                type="password"
-                secureTextEntry
-                placeholder="Password"
-                style={styles.textBox}
-                onChangeText={(password) => this.setState({password})}
-                value={this.state.password}
-                ref = "password"
-                onSubmitEditing = {(event)=> this.handleButtonPress()}
-                />
-              </InputGroup> */}
+              <Text  style={styles.subHeader}>QUALIFICATION</Text>
+              <View style={styles.proContainer}>
+              <Icon name="ios-book" type="ionicon"  style={{ color: "#007aff", fontSize: 25 }} />
+                <Text style={styles.propreName}>Qualification</Text>
+                <Picker
+                  mode="dropdown"
+                  iosHeader="Select your Salary"
+                  iosIcon={<Icon name="md-arrow-dropdown" type="ionicon"  style={{ color: "#007aff", fontSize: 25 }} />}
+                  style={styles.proPicker}
+                  selectedValue={this.state.qualification}
+                  onValueChange={this.onValueChangetoYear.bind(this)}
+                >
+                  {this.state.qualificationList.map((member,key) => <Picker.Item label={member} value={member} key={key}/>)}
+                </Picker>
+              </View>
+
             </Form>        
             <Button
               style={styles.changesButton}
-              title="Save Changes"
+              rounded
               onPress={() =>
               this.handleButtonPress()
               }
-            />
+            ><Text style={styles.changesButtonText}>Save Changes</Text></Button>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -201,39 +319,75 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	editProImageview:{
-		margin:20,
     alignItems: 'center',
 	},
 	editImage:{
 		width:150,
 		height:150,
-		margin:20,
+    margin:20,
+    marginBottom:5,
 		borderRadius:75,
   },
-  changesButton:{
-    backgroundColor: "rgba(92, 99,216, 1)",
-    width: 300,
+  editPicButton:{
+    backgroundColor:'transparent',
+    width: '80%',
     height: 45,
     borderColor: "transparent",
     borderWidth: 0,
-    borderRadius: 5
+    borderRadius: 5,
+    marginBottom:20,
+    marginLeft:'10%',
+  },
+  editPicButtontext:{
+    color:'#488aff',
+    width: '100%',
+    textAlign:'center',
+    shadowColor:'transparent'
+  },
+  changesButton:{
+    backgroundColor: "#488aff",
+    width: '80%',
+    height: 45,
+    borderColor: "transparent",
+    borderWidth: 0,
+    borderRadius: 5,
+    marginBottom:20,
+    marginLeft:'10%',
+    
+  },
+  changesButtonText:{
+    width: '100%',
+    textAlign:'center',
+    color:'white'
+  },
+  subHeader:{
+    backgroundColor:'#cacdd1',
+    height: 40,
+    fontSize:16,
+    fontWeight:'bold',
+    padding:10,
+    textAlignVertical:'center'
   },
   inputgroupStyle:{
     borderBottomWidth:2,
-    marginBottom:10
+    marginBottom:5,
+    marginLeft:20,
+    marginRight:20
   },
   textBox:{
     fontSize:14,
-    textAlignVertical:'center'
+    marginLeft:5
+    
   },
   textArea:{
     marginTop:5,
     width:"100%",
-    textAlignVertical:'center',
     fontSize:14
   },
   listStyle:{
     marginBottom:10,
+    marginLeft:20,
+    marginRight:20
     
   },
   skillSetList:{
@@ -248,5 +402,19 @@ const styles = StyleSheet.create({
   removeIcon:{
     height:30,
     marginLeft:10
-  }
+  },
+  proContainer:{
+    flexDirection: 'row',
+    marginTop:10,
+    marginLeft:20,
+    marginRight:20
+  },
+  propreName:{
+    fontSize:14,
+    marginTop:15,
+    marginRight:15,
+    width:100,
+    marginLeft:10
+    
+  },
 });
