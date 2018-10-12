@@ -11,6 +11,7 @@ import CardStack, { Card } from 'react-native-card-stack-swiper';
 import { CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import { Icon } from 'native-base';
 
+
 export default class App extends Component {
   render() {
     const { navigate } = this.props.navigation;
@@ -76,7 +77,7 @@ export default class App extends Component {
                 <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
 
                 </View>
-                
+                  <View style = {styles.lineStyle} />
             </TouchableOpacity>
           </Card>
 
@@ -349,7 +350,7 @@ const styles = StyleSheet.create({
   },
   card1: {
     flex: 1,  
-    backgroundColor: '#fff',
+    backgroundColor: '#E0E0E0',
   },
   label: {
     width: 300,

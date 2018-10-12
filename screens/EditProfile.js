@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button, TouchableOpacity, Animated, ScrollView,
 import { Form, Icon, Input, InputGroup } from 'native-base';
 import HeaderComponent from '../components/headerComponent';
 import FormProfile from '../components/formProfile';
+import EmployerProfile from '../components/EmployerProfile';
 
 class EditProfile extends Component {
 	constructor(props){
@@ -14,7 +15,7 @@ class EditProfile extends Component {
 	render() {
 		return (
       <View style={styles.container}>
-        <FormProfile />
+        <EmployerProfile />
       </View>
 		);
 	}
