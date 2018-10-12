@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import Details from './Details';
 import CardStack, { Card } from 'react-native-card-stack-swiper';
+import { CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import { Icon } from 'native-base';
 
 export default class App extends Component {
   render() {
@@ -28,142 +30,305 @@ export default class App extends Component {
         >
           <Card style={[styles.card, styles.card1]}>
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
-                <Text style={styles.label}> 
+                <View style={styles.label}> 
+                  <View style={styles.navBar}>
+                    <View style={styles.leftContainer}>
+                    <Image style={styles.editImage}
+							        source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
+							     	/>	
+                    </View>
+                    <View style={styles.rightContainer}>
+                      <Text style={styles.JobName}> Android Developer </Text>
+                      <Text style={styles.CompanyName}> IRtrends Pvt Ltd    </Text>
+                      <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu  </Text>
+                    </View>
+                  </View>
+
+                  <View style={styles.ProfileDetails}>
+                    <View style={styles.salaryDetails}>
+                      <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>0-10 yrs</Text>  
+                    </View>
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-pin" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>Chennai</Text>
+                    </View>
+                    
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-cash" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>10k-15k</Text>
+                    </View>   
+                  </View>
+
+                  <View style = {styles.lineStyle} />
+
+                <View>
+                  <CardTitle style={styles.Subtitle} subtitle="Skills"/>
+                  <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+                </View>
+
+                <View style = {styles.lineStyle} />
+
+                <CardTitle style={styles.Subtitle}
+                    subtitle="Experience"
+                />
+                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+
+                </View>
                 
-					
-						<Image
-							style={styles.editImage}
-							source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
-							
-						/>	
-					
-				{"\n"}
-                    <Text style={styles.JobName}> Android Developer {"\n"} </Text>
-                    <Text style={styles.CompanyName}> Rupenet Technology Solutions Pvt Ltd {"\n"}   </Text>
-                    <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu {"\n"}   </Text>
-                </Text>
             </TouchableOpacity>
           </Card>
+
 
           <Card style={[styles.card, styles.card1]}>
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
-                <Text style={styles.label}> 
+                <View style={styles.label}> 
+                  <View style={styles.navBar}>
+                    <View style={styles.leftContainer}>
+                    <Image style={styles.editImage}
+							        source={{uri: 'https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/106/thumb_bigger_formation-angular-avance.png'}}
+							     	/>	
+                    </View>
+                    <View style={styles.rightContainer}>
+                      <Text style={styles.JobName}> Angular Developer </Text>
+                      <Text style={styles.CompanyName}> IRtrends Pvt Ltd    </Text>
+                      <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu  </Text>
+                    </View>
+                  </View>
+
+                  <View style={styles.ProfileDetails}>
+                    <View style={styles.salaryDetails}>
+                      <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>0-10 yrs</Text>  
+                    </View>
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-pin" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>Chennai</Text>
+                    </View>
+                    
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-cash" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>10k-15k</Text>
+                    </View>   
+                  </View>
+
+                  <View style = {styles.lineStyle} />
+
+                <View>
+                  <CardTitle style={styles.Subtitle} subtitle="Skills"/>
+                  <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+                </View>
+
+                <View style = {styles.lineStyle} />
+
+                <CardTitle style={styles.Subtitle}
+                    subtitle="Experience"
+                />
+                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+
+                </View>
                 
-					
-						<Image
-							style={styles.editImage}
-							source={{uri: 'https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/106/thumb_bigger_formation-angular-avance.png'}}
-							
-						/>	
-					
-				{"\n"}
-                    <Text style={styles.JobName}> Angular Developer {"\n"} </Text>
-                    <Text style={styles.CompanyName}> IRtrends Pvt Ltd {"\n"}   </Text>
-                    <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu {"\n"}   </Text>
-                </Text>
             </TouchableOpacity>
           </Card>
+
 
           <Card style={[styles.card, styles.card1]}>
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
-                <Text style={styles.label}> 
+                <View style={styles.label}> 
+                  <View style={styles.navBar}>
+                    <View style={styles.leftContainer}>
+                    <Image style={styles.editImage}
+							        	source={{uri: 'https://png.pngtree.com/svg/20170719/react_1353128.png'}}
+							     	/>	
+                    </View>
+                    <View style={styles.rightContainer}>
+                      <Text style={styles.JobName}> Reactjs Developer </Text>
+                      <Text style={styles.CompanyName}> IRtrends Pvt Ltd    </Text>
+                      <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu  </Text>
+                    </View>
+                  </View>
+
+                  <View style={styles.ProfileDetails}>
+                    <View style={styles.salaryDetails}>
+                      <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>0-10 yrs</Text>  
+                    </View>
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-pin" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>Chennai</Text>
+                    </View>
+                    
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-cash" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>10k-15k</Text>
+                    </View>   
+                  </View>
+
+                  <View style = {styles.lineStyle} />
+
+                <View>
+                  <CardTitle style={styles.Subtitle} subtitle="Skills"/>
+                  <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+                </View>
+
+                <View style = {styles.lineStyle} />
+
+                <CardTitle style={styles.Subtitle}
+                    subtitle="Experience"
+                />
+                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+
+                </View>
                 
-					
-						<Image
-							style={styles.editImage}
-							source={{uri: 'https://png.pngtree.com/svg/20170719/react_1353128.png'}}
-							
-						/>	
-					
-				{"\n"}
-                    <Text style={styles.JobName}> React Developer {"\n"} </Text>
-                    <Text style={styles.CompanyName}> Agnitio solutions Pvt Ltd {"\n"}   </Text>
-                    <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu {"\n"}   </Text>
-                </Text>
             </TouchableOpacity>
           </Card>
+
 
           <Card style={[styles.card, styles.card1]}>
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
-                <Text style={styles.label}> 
+                <View style={styles.label}> 
+                  <View style={styles.navBar}>
+                    <View style={styles.leftContainer}>
+                    <Image style={styles.editImage}
+							       source={{uri: 'https://walde.co/wp-content/uploads/2016/09/nodejs_logo.png'}}
+							     	/>	
+                    </View>
+                    <View style={styles.rightContainer}>
+                      <Text style={styles.JobName}> Nodejs Developer </Text>
+                      <Text style={styles.CompanyName}> IRtrends Pvt Ltd    </Text>
+                      <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu  </Text>
+                    </View>
+                  </View>
+
+                  <View style={styles.ProfileDetails}>
+                    <View style={styles.salaryDetails}>
+                      <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>0-10 yrs</Text>  
+                    </View>
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-pin" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>Chennai</Text>
+                    </View>
+                    
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-cash" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>10k-15k</Text>
+                    </View>   
+                  </View>
+
+                  <View style = {styles.lineStyle} />
+
+                <View>
+                  <CardTitle style={styles.Subtitle} subtitle="Skills"/>
+                  <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+                </View>
+
+                <View style = {styles.lineStyle} />
+
+                <CardTitle style={styles.Subtitle}
+                    subtitle="Experience"
+                />
+                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+
+                </View>
                 
-					
-						<Image
-							style={styles.editImage}
-							source={{uri: 'http://siteimages.saihasoft.com/uploads/technology/JAPSfAbP3BFt6TW_O-WrWrBat15Zbun6.png'}}
-							
-						/>	
-					
-				{"\n"}
-                    <Text style={styles.JobName}> Ionic Developer {"\n"} </Text>
-                    <Text style={styles.CompanyName}> Blunic Solutions Pvt Ltd {"\n"}   </Text>
-                    <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu {"\n"}   </Text>
-                </Text>
             </TouchableOpacity>
           </Card>
+
 
           <Card style={[styles.card, styles.card1]}>
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
-                <Text style={styles.label}> 
+                <View style={styles.label}> 
+                  <View style={styles.navBar}>
+                    <View style={styles.leftContainer}>
+                    <Image style={styles.editImage}
+                      source={{uri: 'http://siteimages.saihasoft.com/uploads/technology/JAPSfAbP3BFt6TW_O-WrWrBat15Zbun6.png'}}
+                      />
+                    </View>
+                    <View style={styles.rightContainer}>
+                      <Text style={styles.JobName}> Ionic Developer </Text>
+                      <Text style={styles.CompanyName}> IRtrends Pvt Ltd    </Text>
+                      <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu  </Text>
+                    </View>
+                  </View>
+
+                  <View style={styles.ProfileDetails}>
+                    <View style={styles.salaryDetails}>
+                      <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>0-10 yrs</Text>  
+                    </View>
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-pin" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>Chennai</Text>
+                    </View>
+                    
+                    <View style={styles.salaryDetails}>
+                      <Icon name="ios-cash" style={{color:'#384850'}}/>
+                      <Text style={styles.CompanyName}>10k-15k</Text>
+                    </View>   
+                  </View>
+
+                  <View style = {styles.lineStyle} />
+
+                <View>
+                  <CardTitle style={styles.Subtitle} subtitle="Skills"/>
+                  <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+                </View>
+
+                <View style = {styles.lineStyle} />
+
+                <CardTitle style={styles.Subtitle}
+                    subtitle="Experience"
+                />
+                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+
+                </View>
                 
-					
-						<Image
-							style={styles.editImage}
-							source={{uri: 'https://walde.co/wp-content/uploads/2016/09/nodejs_logo.png'}}
-							
-						/>	
-					
-				{"\n"}
-                    <Text style={styles.JobName}> Node js Developer {"\n"} </Text>
-                    <Text style={styles.CompanyName}>Info Hawk pvt ltd{"\n"}   </Text>
-                    <Text style={styles.CompanyLocation}> Chennai, Tamil Nadu {"\n"}   </Text>
-                </Text>
             </TouchableOpacity>
           </Card>
-
-          {/* <Card style={[styles.card, styles.card2]} onSwipedLeft={() => alert('onSwipedLeft')}><Text style={styles.label}>B</Text></Card>
-          <Card style={[styles.card, styles.card1]}><Text style={styles.label}>C</Text></Card>
-          <Card style={[styles.card, styles.card2]}><Text style={styles.label}>D</Text></Card>
-          <Card style={[styles.card, styles.card1]}><Text style={styles.label}>E</Text></Card> */}
 
         </CardStack>
 
-
-        {/* <View style={styles.footer}>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={[styles.button,styles.red]} onPress={()=>{
-              this.swiper.swipeLeft();
-            }}>
-              <Image source={require('./assets/red.png')} resizeMode={'contain'} style={{ height: 62, width: 62 }} />
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button,styles.orange]} onPress={() => {
-              this.swiper.goBackFromLeft();
-            }}>
-              <Image source={require('./assets/back.png')} resizeMode={'contain'} style={{ height: 32, width: 32, borderRadius: 5 }} />
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button,styles.green]} onPress={()=>{
-              this.swiper.swipeRight();
-            }}>
-              <Image source={require('./assets/green.png')} resizeMode={'contain'} style={{ height: 62, width: 62 }} />
-            </TouchableOpacity>
-          </View>
-
-        </View> */}
       </View>
     );
   }
 }
 
   
-    
-  
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin:'5%',
+    margin:'3%',
     flexDirection: 'column',
     backgroundColor: '#f2f2f2',
+  },
+  navBar: {
+    flexDirection: 'row',
+    margin:'5%',
+  },
+  leftContainer: {
+    width: '30%',
+    alignItems: 'center',
+  },
+  rightContainer: {
+     width: '70%',
+  },
+ Experience: {
+        marginLeft:'8%',
+    },
+  ProfileDetails:{ 
+    flexDirection: 'row',
+    margin:'5%',
+  },
+  salaryDetails:{
+    width: '33%', 
+    alignItems: 'center',
   },
   content:{
     flex: 5,
@@ -171,50 +336,53 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   card:{
-    width: 300,
-    height: 300,
+    width: '100%',
+    height: 400,
     backgroundColor: '#FE474C',
     borderRadius: 5,
-    shadowColor: 'rgba(0,0,0,0.5)',
+    shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 1
+      width: 2,
+      height: 2,
     },
     shadowOpacity:0.5,
   },
   card1: {
     flex: 1,  
-    backgroundColor: '#B0D8C4',
-  },
-  card2: {
-    backgroundColor: '#FEB12C',
+    backgroundColor: '#fff',
   },
   label: {
-    justifyContent: 'center',
-    textAlign:'center',
     width: 300,
-    fontSize: 30,
-    marginTop:'15%',
-    color: '#000',
-    backgroundColor: 'transparent',
+    marginTop:'5%',
   },
  
 editImage:{
-    width:250,
-    height:250,  
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#F44336',
-    borderRadius: 10
+    width:60,
+    height:60,  
 },
   JobName:{
-    fontSize: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   CompanyName:{
     fontSize: 15,
   },
-
-  CompanyLocation:{
+CompanyLocation:{
     fontSize: 12,
+    color:'#194D33',
   },
+  Subtitle:{
+    marginBottom:'2%',
+},
+Skills:{
+  marginLeft:'8%',
+  marginBottom:'3%',
+  padding:'3%',
+},
+lineStyle:{
+  borderWidth: 0.5,
+  borderColor:'#ABB3AF',
+  marginLeft:'5%',
+  marginRight:'5%',
+}
 });
