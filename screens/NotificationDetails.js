@@ -45,17 +45,15 @@ class NotificationDetails extends Component {
                         </Grid>      
                         
                       </Card>
-
-                 <CardTitle style={styles.Subtitle}
-                  subtitle="Job Description"                 
-                />
-
+                      
+                      <Text  style={styles.subHeader}>Job Description</Text>
+                
                 <Text style={styles.JobSummery}>We are looking for an Android developer responsible for
                  the development and maintenance of applications. To ensure the best possible performance, 
                  quality, and responsiveness of the application</Text>
-                 <CardTitle style={styles.Subtitle}                  
-                    subtitle="Responsibilities and Duties"
-                />
+                
+                 <Text  style={styles.subHeader}>Responsibilities and Duties</Text>
+
                 <View style={ styles.column }>
 
                     <View style={ styles.row }>
@@ -111,20 +109,16 @@ class NotificationDetails extends Component {
                     </View>
 
                 </View>
-                <CardTitle style={styles.Subtitle}
-                    subtitle="Skills"
-                />
+               <Text  style={styles.subHeader}>Skills</Text>
                 <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
                 
-                <CardTitle style={styles.Subtitle}
-                    subtitle="Experience"
-                />
+                <Text  style={styles.subHeader}>Experience</Text>
+
                 <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
                 <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
 
-                <CardTitle style={styles.Subtitle}
-                    subtitle="Education"
-                />
+                <Text  style={styles.subHeader}>Education</Text>
+
                 <Text style={ styles.Education }>Bachelor's (Required)</Text>
 
                 <View style={styles.ButtonRow}>
@@ -196,6 +190,7 @@ const styles = StyleSheet.create({
     JobSummery:{
         color:'#000',
         padding:'3%',
+        margin:'2%',
     },
     Roles:{
         color:'#000',
@@ -209,6 +204,7 @@ const styles = StyleSheet.create({
     column: {
         flexDirection: 'column',
         alignItems: 'flex-start',
+        margin:'3%',
     },
     row: {
         flexDirection: 'row',
@@ -228,10 +224,11 @@ const styles = StyleSheet.create({
     },
     Experience: {
         marginLeft:'8%',
+        margin:'2%',
     },
     Education:{
         marginLeft:'8%',
-        marginBottom:'3%',
+        margin:'3%',
     },
     Skills:{
         marginLeft:'8%',
@@ -256,5 +253,13 @@ const styles = StyleSheet.create({
         textAlign:'center',
         padding:'5%',
         marginTop:'8%',
-    }
+    },
+    subHeader:{
+        backgroundColor:'#cacdd1',
+        height: 40,
+        fontSize:16,
+        fontWeight:'bold',
+        padding:10,
+        textAlignVertical:'center'
+      },
 });

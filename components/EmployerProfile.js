@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button, TouchableOpacity, ListView,Animated, ScrollView, KeyboardAvoidingView } from "react-native";
-import { Form, Icon, Input, InputGroup, Textarea } from 'native-base';
+import { Form  ,Picker, Input, InputGroup, Textarea } from 'native-base';
 import { Subheader } from 'react-native-material-ui';
-
+import { Icon } from 'react-native-elements';
 var SampleArray = [] ;
 
 class EmployerProfile extends Component {
@@ -76,9 +76,9 @@ class EmployerProfile extends Component {
           </View>
           <View >
             <Form style={{margin:20}}>
-            <Subheader text="GENERAL PROFILE" />
+            <Text  style={styles.subHeader}>GENERAL PROFILE</Text>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+              <Icon name='account-balance' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="Company Name"
@@ -89,7 +89,7 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+              <Icon type='MaterialCommunityIcons' name='web' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="Website"
@@ -101,9 +101,23 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
 
+                <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='people' type="SimpleLineIcons" style={{color:'#384850'}}/>
+                  <Text style={styles.propreName}>Company Size</Text>
+                <Picker
+                  selectedValue={this.state.language}
+                  style={{ height: 50, width: 100 }}
+                  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+                  <Picker.Item label="1-10" value="1-10" />
+                  <Picker.Item label="1-20" value="1-20" />
+                  <Picker.Item label="1-50" value="1-50" />
+                  <Picker.Item label="1-100" value="1-100" />
+                  <Picker.Item label="1-200" value="1-200" />
+                </Picker>
+              </InputGroup>
               
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-mail' style={{color:'#384850'}}/>
+              <Icon name='mail' style={{color:'#384850'}}/>
                 <Input
                 type="email"
                 placeholder="Email"
@@ -114,20 +128,21 @@ class EmployerProfile extends Component {
                 onSubmitEditing = {(event)=> this.refs.experience._root.focus()}
                 />
               </InputGroup>
+             
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-briefcase' style={{color:'#384850'}}/>
-                <Input
-                type="text"
-                placeholder="Experience"
-                style={styles.textBox}
-                onChangeText={(experience) => this.setState({experience})}
-                value={this.state.experience}
-                ref = "experience"
-                onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
+                <Icon name='location-on' type="MaterialIcons" style={{color:'#384850',}}/>
+                <Textarea 
+                rowSpan={3} 
+                underlined 
+                style={styles.textArea}
+                onChangeText={(companyAddress) => this.setState({companyAddress})}
+                placeholder="Company Address" 
+                value={this.state.companyAddress}
+                ref = "companyAddress"
+                
                 />
-              </InputGroup>
+                </InputGroup>
 
-              
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
                 <Icon name='list' style={{color:'#384850'}}/>
                 <Textarea 
@@ -142,10 +157,10 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
               
-              <Subheader text="PERSONAL DETAILS" />
+              <Text  style={styles.subHeader}>PERSONAL DETAILS</Text>
 
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+              <Icon name='person' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="First Name"
@@ -156,7 +171,7 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-person' style={{color:'#384850'}}/>
+              <Icon name='person' style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="Last Name"
@@ -168,7 +183,7 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-mail' style={{color:'#384850'}}/>
+              <Icon name='mail' style={{color:'#384850'}}/>
                 <Input
                 type="email"
                 placeholder="Email"
@@ -180,7 +195,7 @@ class EmployerProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-briefcase' style={{color:'#384850'}}/>
+                 <Icon name='phone' type="Entypo" style={{color:'#384850'}}/>
                 <Input
                 type="text"
                 placeholder="PhoneNumber"
@@ -191,51 +206,22 @@ class EmployerProfile extends Component {
                 onSubmitEditing = {(event)=> this.refs.summary._root.focus()}
                 />
               </InputGroup>
+
+              <Text  style={styles.subHeader}>YOUR ROLE</Text>
+
+              <InputGroup borderType="underline" style={styles.inputgroupStyle}>
+                <Icon name='ios-briefcase' type="ionicon" style={{color:'#384850'}}/>
+                <Picker
+                  selectedValue={this.state.language}
+                  style={{ height: 50, width: 100 }}
+                  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+                  <Picker.Item label="Human Resource" value="Human Resource" />
+                  <Picker.Item label="Managing Director" value="1-20" />
+                  <Picker.Item label="Senior Developer" value="Senior Developer" />
+                </Picker>
+              </InputGroup>
+              
              
-              {/* <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='ios-briefcase' style={{color:'#384850'}}/>
-                <Input
-                type="text"
-                placeholder="Skills"
-                style={styles.textBox}
-                onChangeText={(skills) => this.setState({skills})}
-                value={this.state.skills}
-                ref = "skills"
-                onSubmitEditing = {(event)=> this.addSkills()}
-                />
-              </InputGroup> */}
-              
-              {/* <ListView
-                style={styles.listStyle}
-                dataSource={this.dataSource.cloneWithRows(this.state.test)}
-                enableEmptySections={true}
-                renderRow={
-                  (item, sectionID, rowID) => 
-                  
-                    <View 
-                      style={styles.skillSetList}
-                    ><Text style={styles.skillSetText}>{item}</Text>
-                    <TouchableOpacity onPress={() => this.removeSkills(rowID)} style={styles.removeIcon}>
-                      <Icon name='ios-close' style={{color:'#384850', alignContent:"flex-end"}}/>
-                    </TouchableOpacity>
-                  </View>
-            
-                }
-              /> */}
-              
-              {/* <InputGroup borderType="underline">
-                <Icon name='ios-lock' style={{color:'#384850'}}/>
-                <Input
-                type="password"
-                secureTextEntry
-                placeholder="Password"
-                style={styles.textBox}
-                onChangeText={(password) => this.setState({password})}
-                value={this.state.password}
-                ref = "password"
-                onSubmitEditing = {(event)=> this.handleButtonPress()}
-                />
-              </InputGroup> */}
             </Form>        
             <Button
               style={styles.changesButton}
@@ -303,8 +289,27 @@ const styles = StyleSheet.create({
     fontSize:16,
    
   },
+  subHeader:{
+    backgroundColor:'#cacdd1',
+    height: 40,
+    fontSize:16,
+    fontWeight:'bold',
+    padding:10,
+    textAlignVertical:'center'
+  },
   removeIcon:{
     height:30,
-    marginLeft:10
-  }
+    marginLeft:10,
+  },
+  proContainer:{
+    flexDirection: 'row',
+    marginTop:10,
+    marginLeft:20,
+    marginRight:20
+  },
+  propreName:{
+    marginRight:'30%',
+    marginLeft:'3s%',
+    
+  },
 });

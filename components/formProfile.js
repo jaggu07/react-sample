@@ -167,7 +167,7 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='location' type="evilicon" style={{color:'#384850', position: 'absolute',top:10}}/>
+                <Icon name='location' type="evilicon" style={{color:'#384850',}}/>
                 <Textarea 
                 rowSpan={3} 
                 underlined 
