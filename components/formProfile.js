@@ -140,7 +140,7 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='list' style={{color:'#384850'}}/>
+                <Icon name='list' containerStyle={styles.textAreaIcon}/>
                 <Textarea 
                 rowSpan={3} 
                 underlined 
@@ -167,7 +167,7 @@ class FormProfile extends Component {
                 />
               </InputGroup>
               <InputGroup borderType="underline" style={styles.inputgroupStyle}>
-                <Icon name='location' type="evilicon" style={{color:'#384850', position: 'absolute',top:10}}/>
+                <Icon name='location' type="evilicon" containerStyle={styles.textAreaIcon}/>
                 <Textarea 
                 rowSpan={3} 
                 underlined 
@@ -316,7 +316,8 @@ export default FormProfile;
 const styles = StyleSheet.create({
     container: {
 		flex:1,
-		justifyContent: 'center'
+    justifyContent: 'center',
+    zIndex:0
 	},
 	editProImageview:{
     alignItems: 'center',
@@ -382,7 +383,12 @@ const styles = StyleSheet.create({
   textArea:{
     marginTop:5,
     width:"100%",
-    fontSize:14
+    fontSize:14,
+    margin:25
+  },
+  textAreaIcon:{
+    position:'absolute',top:10,left:5
+    
   },
   listStyle:{
     marginBottom:10,
@@ -406,7 +412,7 @@ const styles = StyleSheet.create({
   proContainer:{
     flexDirection: 'row',
     marginTop:10,
-    marginLeft:20,
+    marginLeft:25,
     marginRight:20
   },
   propreName:{

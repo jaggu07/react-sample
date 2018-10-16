@@ -15,7 +15,7 @@ class EditProfile extends Component {
 	render() {
 		return (
       <View style={styles.container}>
-        <EmployerProfile />
+        <FormProfile />
       </View>
 		);
 	}
@@ -25,6 +25,7 @@ export default EditProfile;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center'
+		justifyContent: 'center',
+		zIndex:0
 	}
 });

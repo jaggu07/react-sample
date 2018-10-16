@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView} from 'react-native';
-import { Form, Icon, Input, InputGroup } from 'native-base';
+import { Form, Icon, Input, InputGroup, ListItem, Text, Radio, Right, Left } from 'native-base';
 import HeaderComponent from '../components/headerComponent';
 
 export default class App extends Component {
@@ -10,7 +10,8 @@ export default class App extends Component {
       firstName: '',
       lastName: '',
       email:'',
-      password:''
+      password:'',
+      role: 'Employer',
     };
   }
   handleButtonPress() {
@@ -23,6 +24,9 @@ export default class App extends Component {
     }
     navigate('UpdateProfile')
    console.log(JSON.stringify(params))
+  }
+  radioSelected(arg) {
+    this.setState({role : arg});
   }
   render() {
     return (
@@ -79,6 +83,23 @@ export default class App extends Component {
               onSubmitEditing = {(event)=> this.handleButtonPress()}
             />
           </InputGroup>
+          <ListItem onPress={()=> this.radioSelected('Employer')} style={{marginLeft:0,height: 60, }}>
+          <Icon name='user-tie' type="Foundation" style={{color:'#384850'}}/>
+            <Left>
+              <Text>Employer</Text>
+            </Left>
+            <Right>
+              <Radio selected={this.state.role == 'Employer'} />
+            </Right>
+          </ListItem>
+          <ListItem onPress={()=> this.radioSelected('Employee')} style={{marginLeft:0,height: 60, }}>
+            <Left>
+              <Text>Employee</Text>
+            </Left>
+            <Right>
+              <Radio selected={this.state.role == 'Employee'} />
+            </Right>
+          </ListItem>
         </Form>        
         <Button
           style={{backgroundColor: "rgba(92, 99,216, 1)",
