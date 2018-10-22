@@ -21,11 +21,12 @@ class Details extends Component {
                 <ScrollView>
                         <Card>
                         <Grid style={styles.Compydetails}>
-                            <Col size={20}><Text style={styles.Iconimg}><Image
-							style={styles.editImage}
-							source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
-							
-						/>	</Text></Col>
+                            <Col size={20}>
+                                <Image
+                                style={styles.editImage}
+                                source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
+                                />
+                            </Col>
                             <Col size={75} style={{marginLeft:'3%'}}>
                             <Text style={styles.JobName}>Andriod Developer</Text>       
                             <Text style={styles.CompanyName}>IRtrends pvt ltd</Text>
@@ -252,8 +253,8 @@ const styles = StyleSheet.create({
         height: 40
       },
       editImage:{
-        width:100,
-        height:100,  
+        width:60,
+        height:60,  
     },
     Iconimg:{
         textAlign:'center',

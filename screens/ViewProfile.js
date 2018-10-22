@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {  View, Text, StyleSheet, Button, Image, Modal, TouchableOpacity } from "react-native";
+import {  View, Text, StyleSheet, Button, Image, Modal, TouchableOpacity,Platform } from "react-native";
 import { createStackNavigator } from 'react-navigation';
 import EditProfile from'./EditProfile';
-import { Picker, ListItem, Left, Right, List } from "native-base";
+import { Picker, ListItem, Left, Right, List, Body } from "native-base";
 import { logout } from '../api/auth';
 import { Icon, Header } from 'react-native-elements';
 
@@ -86,10 +86,10 @@ class ViewProfileScreen extends Component {
 									<Icon name="md-close" type="ionicon" onPress={ () => this.setModalVisible(!this.state.modalVisible)} color='white' size={25}/>
 								</Right>
 							</ListItem>
-							<ListItem>
+							<ListItem style={{padding:5,marginLeft:"5%",width:"90%"}}>
 								<Text>Employer</Text>
 							</ListItem>
-							<ListItem>
+							<ListItem style={{padding:5,marginLeft:"5%",width:"90%"}}>
 								<Text>Employee</Text>
 							</ListItem>
 							</List>
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
 			top:'25%',
 			left:"40%",
 			backgroundColor:'white',
-			
+			height:Platform.OS === 'ios'? 150 : 162
 
 		},
 		titleComponent:{
@@ -205,6 +205,6 @@ const styles = StyleSheet.create({
 			fontSize:18,
 			textAlign:'left',
 			fontWeight: 'bold',
-			
+
 		 }
 });
