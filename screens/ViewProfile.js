@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import {  View, Text, StyleSheet, Button, Image } from "react-native";
+import {  View, Text, StyleSheet, Button, Image, Modal, TouchableHighlight } from "react-native";
 import { createStackNavigator } from 'react-navigation';
 import EditProfile from'./EditProfile';
-import { Picker, Icon } from "native-base";
+import { Picker, ListItem, Left, Right } from "native-base";
 import { logout } from '../api/auth';
+import { Icon, Header } from 'react-native-elements';
+
 import HeaderComponent from '../components/headerComponent';
 
 class ViewProfileScreen extends Component {
@@ -11,10 +13,15 @@ class ViewProfileScreen extends Component {
 		super(props);
 		this.state = {
 			selectedSalary: "key1",
-			selectedLocation: "key1"
+			selectedLocation: "key1",
+			modalVisible: false,
 	};
 	this.onLogout = this.onLogout.bind(this);
 	}
+	setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
 	async onLogout() {
 		await logout();
 		this.props.navigation.navigate('Login');
@@ -44,7 +51,41 @@ class ViewProfileScreen extends Component {
 						source={{uri: 'http://engineering.indeedblog.com/wp-content/uploads/2017/12/react-native-1024x631.png'}}
 					/>
 					<View>
-						<Text style={styles.proName}>John</Text>
+					<Modal
+          animationType="fade"
+					transparent={true}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={styles.modalView}>
+            <View>
+							<ListItem itemHeader first 
+							style={{backgroundColor:"#488aff"}}>
+								<Left>
+								<Text style={styles.titleComponent}>View as</Text>
+								</Left>
+								<Right >
+									<Icon name="md-close" type="ionicon" onPress={ () => this.setModalVisible(!this.state.modalVisible)} color='white' size={25}/>
+								</Right>
+							</ListItem>
+							<ListItem>
+								<Text>Employer</Text>
+							</ListItem>
+							<ListItem>
+								<Text>Employee</Text>
+							</ListItem>
+            </View>
+          </View>
+        </Modal>
+						<Text style={styles.proName}>John </Text>
+						<TouchableHighlight
+						style={styles.proSwitchIcon}
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
+          <Icon name="md-arrow-dropdown" type="ionicon"  style={{}}/>
+        </TouchableHighlight>
 						<Text style={styles.proDesgination}>Software Engineer</Text>
 						<Button
 							title="Edit Profile"
@@ -61,7 +102,7 @@ class ViewProfileScreen extends Component {
 						<Picker
               mode="dropdown"
               iosHeader="Select your Salary"
-              iosIcon={<Icon name="arrow-dropdown" style={{ color: "#007aff", fontSize: 25 }} />}
+              iosIcon={<Icon name="ios-arrow-dropdown" type="ionicon" style={{ color: "#007aff", fontSize: 25 }} />}
               style={styles.proPicker}
               selectedValue={this.state.selectedSalary}
               onValueChange={this.onValueChangeSalary.bind(this)}
@@ -78,7 +119,7 @@ class ViewProfileScreen extends Component {
 						<Picker
               mode="dropdown"
               iosHeader="Select your City"
-              iosIcon={<Icon name="arrow-dropdown" style={{ color: "#007aff", fontSize: 25 }} />}
+              iosIcon={<Icon name="ios-arrow-dropdown" type="ionicon" style={{ color: "#007aff", fontSize: 25 }} />}
               style={styles.proPicker}
               selectedValue={this.state.selectedLocation}
               onValueChange={this.onValueChangeLocation.bind(this)}
@@ -129,7 +170,8 @@ const styles = StyleSheet.create({
 			fontSize: 18,
 			marginTop:30,
 			fontWeight: 'bold',
-			marginRight:0
+			marginRight:0,
+			flexDirection:"row"
 		},
 		proDesgination:{
 			fontSize: 16,
@@ -145,8 +187,20 @@ const styles = StyleSheet.create({
 			marginRight:15,
 			flex:4
 		},
-		proPicker:{
-		
-		
-		}
+		proSwitchIcon:{
+		marginTop:-20,
+		},
+		modalView:{
+			width:"40%",
+			top:'25%',
+			marginLeft:"40%",
+			backgroundColor:'white'
+
+		},
+		titleComponent:{
+			color: 'white',
+			fontSize:18,
+			textAlign:'left',
+			fontWeight: 'bold',
+		 }
 });

@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity, Animated, ScrollView, KeyboardAvoidingView } from "react-native";
-import { Form, Icon, Input, InputGroup } from 'native-base';
+import { View, StyleSheet } from "react-native";
 import HeaderComponent from '../components/headerComponent';
 import FormProfile from '../components/formProfile';
 import EmployerProfile from '../components/EmployerProfile';
 
-class EditProfile extends Component {
+class EditProfile extends Component {	
 	constructor(props){
 		super(props); 
 	}
 	static navigationOptions = {
     header: PlayerScreen = ({ navigation }) => (<HeaderComponent title={ 'Edit Profile' } back={'arrow-back'} navigationData={navigation}/>)
   };
-	render() {
+	render() {		
 		return (
       <View style={styles.container}>
         <FormProfile />

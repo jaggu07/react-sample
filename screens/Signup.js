@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView} from 'react-native';
-import { Form, Icon, Input, InputGroup, ListItem, Text, Radio, Right, Left } from 'native-base';
+import { Form, Input, InputGroup, ListItem, Text, Radio, Right, Left } from 'native-base';
 import HeaderComponent from '../components/headerComponent';
+import { Icon } from 'react-native-elements';
 
 export default class App extends Component {
   constructor(props) {
@@ -20,9 +21,10 @@ export default class App extends Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      role:this.state.role
     }
-    navigate('UpdateProfile')
+    navigate('UpdateProfile',{'params':params})
    console.log(JSON.stringify(params))
   }
   radioSelected(arg) {
@@ -36,7 +38,7 @@ export default class App extends Component {
       <ScrollView style={styles.container}>
         <Form style={{marginBottom:15}}>
           <InputGroup borderType="underline">
-            <Icon name='ios-person' style={{color:'#384850'}}/>
+            <Icon name='ios-person' type="ionicon" style={{color:'#384850'}}/>
             <Input
               type="text"
               placeholder="First Name"
@@ -47,7 +49,7 @@ export default class App extends Component {
             />
           </InputGroup>
           <InputGroup borderType="underline">
-            <Icon name='ios-person' style={{color:'#384850'}}/>
+            <Icon name='ios-person' type="ionicon" style={{color:'#384850'}}/>
             <Input
               type="text"
               placeholder="Last Name"
@@ -59,7 +61,7 @@ export default class App extends Component {
             />
           </InputGroup>
           <InputGroup borderType="underline">
-            <Icon name='ios-mail' style={{color:'#384850'}}/>
+            <Icon name='ios-mail' type="ionicon" style={{color:'#384850'}}/>
             <Input
               type="email"
               placeholder="Email"
@@ -71,7 +73,7 @@ export default class App extends Component {
             />
           </InputGroup>
           <InputGroup borderType="underline">
-            <Icon name='ios-lock' style={{color:'#384850'}}/>
+            <Icon name='ios-lock' type="ionicon" style={{color:'#384850'}}/>
             <Input
               type="password"
               secureTextEntry
@@ -84,17 +86,18 @@ export default class App extends Component {
             />
           </InputGroup>
           <ListItem onPress={()=> this.radioSelected('Employer')} style={{marginLeft:0,height: 60, }}>
-          <Icon name='user-tie' type="Foundation" style={{color:'#384850'}}/>
+          <Icon name='torso-business' type="foundation" style={{color:'#384850'}}/>
             <Left>
-              <Text>Employer</Text>
+              <Text style={{marginLeft:15}}>Employer</Text>
             </Left>
             <Right>
               <Radio selected={this.state.role == 'Employer'} />
             </Right>
           </ListItem>
           <ListItem onPress={()=> this.radioSelected('Employee')} style={{marginLeft:0,height: 60, }}>
+          <Icon name='graduation-cap' type="font-awesome"/>
             <Left>
-              <Text>Employee</Text>
+              <Text style={{marginLeft:10}}>Employee</Text>
             </Left>
             <Right>
               <Radio selected={this.state.role == 'Employee'} />

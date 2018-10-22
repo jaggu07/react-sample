@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
    titleComponent:{
 		color: 'white',
 		fontSize:18,
-		textAlign:'center'
+		textAlign:'center',
+		fontWeight: 'bold',
 	 }
 });

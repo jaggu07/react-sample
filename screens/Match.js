@@ -74,7 +74,7 @@ export default class App extends Component {
                     subtitle="Experience"
                 />
                 <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
-                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+                <Text style={ styles.Experienc }>Java: 1 year (Required)</Text>
 
                 </View>
                   <View style = {styles.lineStyle} />
@@ -127,7 +127,7 @@ export default class App extends Component {
                     subtitle="Experience"
                 />
                 <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
-                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+                <Text style={ styles.Experienc }>Java: 1 year (Required)</Text>
 
                 </View>
                 
@@ -322,6 +322,11 @@ const styles = StyleSheet.create({
   },
  Experience: {
         marginLeft:'8%',
+        marginTop:'2%',
+    },
+    Experienc:{
+      marginLeft:'8%',
+      paddingBottom:'3%',
     },
   ProfileDetails:{ 
     flexDirection: 'row',
