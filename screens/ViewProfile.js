@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {  View, Text, StyleSheet, Button, Image, Modal, TouchableHighlight } from "react-native";
+import {  View, Text, StyleSheet, Button, Image, Modal, TouchableOpacity } from "react-native";
 import { createStackNavigator } from 'react-navigation';
 import EditProfile from'./EditProfile';
-import { Picker, ListItem, Left, Right } from "native-base";
+import { Picker, ListItem, Left, Right, List } from "native-base";
 import { logout } from '../api/auth';
 import { Icon, Header } from 'react-native-elements';
 
@@ -51,41 +51,14 @@ class ViewProfileScreen extends Component {
 						source={{uri: 'http://engineering.indeedblog.com/wp-content/uploads/2017/12/react-native-1024x631.png'}}
 					/>
 					<View>
-					<Modal
-          animationType="fade"
-					transparent={true}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            alert('Modal has been closed.');
-          }}>
-          <View style={styles.modalView}>
-            <View>
-							<ListItem itemHeader first 
-							style={{backgroundColor:"#488aff"}}>
-								<Left>
-								<Text style={styles.titleComponent}>View as</Text>
-								</Left>
-								<Right >
-									<Icon name="md-close" type="ionicon" onPress={ () => this.setModalVisible(!this.state.modalVisible)} color='white' size={25}/>
-								</Right>
-							</ListItem>
-							<ListItem>
-								<Text>Employer</Text>
-							</ListItem>
-							<ListItem>
-								<Text>Employee</Text>
-							</ListItem>
-            </View>
-          </View>
-        </Modal>
 						<Text style={styles.proName}>John </Text>
-						<TouchableHighlight
+						<TouchableOpacity
 						style={styles.proSwitchIcon}
           onPress={() => {
             this.setModalVisible(true);
           }}>
           <Icon name="md-arrow-dropdown" type="ionicon"  style={{}}/>
-        </TouchableHighlight>
+        </TouchableOpacity>
 						<Text style={styles.proDesgination}>Software Engineer</Text>
 						<Button
 							title="Edit Profile"
@@ -95,6 +68,34 @@ class ViewProfileScreen extends Component {
 						/>
 					</View>
 				</View>
+				<Modal
+          animationType="fade"
+					transparent={true}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            this.setModalVisible(!this.state.modalVisible);
+          }}>
+          
+						<List style={styles.modalView}>
+							<ListItem 
+							style={{backgroundColor:"#488aff",padding:10,marginLeft:0}}>
+								<Left >
+								<Text style={styles.titleComponent}>View as</Text>
+								</Left>
+								<Right>
+									<Icon name="md-close" type="ionicon" onPress={ () => this.setModalVisible(!this.state.modalVisible)} color='white' size={25}/>
+								</Right>
+							</ListItem>
+							<ListItem>
+								<Text>Employer</Text>
+							</ListItem>
+							<ListItem>
+								<Text>Employee</Text>
+							</ListItem>
+							</List>
+           
+          
+        </Modal>
 				<View style={styles.proPrefernces}>
 					<Text style={styles.proName}>Preferences</Text>
 					<View style={styles.proContainer}>
@@ -191,10 +192,12 @@ const styles = StyleSheet.create({
 		marginTop:-20,
 		},
 		modalView:{
-			width:"40%",
+			
+			width:"50%",
 			top:'25%',
-			marginLeft:"40%",
-			backgroundColor:'white'
+			left:"40%",
+			backgroundColor:'white',
+			
 
 		},
 		titleComponent:{
@@ -202,5 +205,6 @@ const styles = StyleSheet.create({
 			fontSize:18,
 			textAlign:'left',
 			fontWeight: 'bold',
+			
 		 }
 });

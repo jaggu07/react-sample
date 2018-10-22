@@ -3,9 +3,12 @@ import { View, Image,Text,StyleSheet,ScrollView,keyString,Button } from "react-n
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Icon } from 'native-base';
+
+import HeaderComponent from '../components/headerComponent';
+
 class Details extends Component {
     static navigationOptions = {
-        title: 'Details',
+        header: PlayerScreen = ({ navigation }) => (<HeaderComponent title={ 'Job Details' } back={'arrow-back'} navigationData={navigation}/>)
       };
     render() {
         
