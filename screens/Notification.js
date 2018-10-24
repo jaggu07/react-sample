@@ -43,6 +43,7 @@ class NotificationScreen extends Component {
                 </Card>
             </TouchableOpacity>
 
+
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
                     <CardTitle subtitle="Android Developer"/>
