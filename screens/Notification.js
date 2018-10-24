@@ -21,36 +21,41 @@ class NotificationScreen extends Component {
 
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
-                    <CardTitle subtitle="Number 6"/>
-                    <CardContent text="Clifton, Western Cape" />
+                    <CardTitle subtitle="Android Developer"/>
+                    <CardContent text="Infohawk Pvt Ltd" />
+                    <CardContent text="applied 10 days ago" />
                 </Card>
             </TouchableOpacity>
                
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
-                    <CardTitle subtitle="Number 6"/>
-                    <CardContent text="Clifton, Western Cape" />
+                    <CardTitle subtitle="Android Developer"/>
+                    <CardContent text="Infohawk Pvt Ltd" />
+                    <CardContent text="applied 10 days ago" />
                 </Card>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
-                    <CardTitle subtitle="Number 6"/>
-                    <CardContent text="Clifton, Western Cape" />
+                    <CardTitle subtitle="Android Developer"/>
+                    <CardContent text="Infohawk Pvt Ltd" />
+                    <CardContent text="applied 10 days ago" />
                 </Card>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
-                    <CardTitle subtitle="Number 6"/>
-                    <CardContent text="Clifton, Western Cape" />
+                    <CardTitle subtitle="Android Developer"/>
+                    <CardContent text="Infohawk Pvt Ltd" />
+                    <CardContent text="applied 10 days ago" />
                 </Card>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
                 <Card pointerEvents="none">
-                    <CardTitle subtitle="Number 6"/>
-                    <CardContent text="Clifton, Western Cape" />
+                    <CardTitle subtitle="Android Developer"/>
+                    <CardContent text="Infohawk Pvt Ltd" />
+                    <CardContent text="applied 10 days ago" />
                 </Card>
             </TouchableOpacity>
 
@@ -64,6 +69,8 @@ const Notification = createStackNavigator({
     NotificationScreen: NotificationScreen,
     NotificationDetails: { screen: NotificationDetails },
   });
+
+
 
 
 export default Notification;

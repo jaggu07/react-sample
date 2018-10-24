@@ -138,15 +138,6 @@ class NotificationDetails extends Component {
                     </View>
                 </View>
 
-                {/* <Button style={styles.ApplyButton}
-                title="APPLY"
-                color="#841584"
-                />
-                <Button style={styles.ApplyButton}
-                title="APPLY"
-                color="#841584"
-                /> */}
-
                 </ScrollView>
                 </Card>
 
