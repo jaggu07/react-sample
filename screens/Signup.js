@@ -3,6 +3,7 @@ import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView}
 import { Form, Input, InputGroup, ListItem, Text, Radio, Right, Left } from 'native-base';
 import HeaderComponent from '../components/headerComponent';
 import { Icon } from 'react-native-elements';
+import * as firebase from 'firebase';
 
 export default class App extends Component {
   constructor(props) {
@@ -24,7 +25,14 @@ export default class App extends Component {
       password: this.state.password,
       role:this.state.role
     }
-    navigate('UpdateProfile',{'params':params})
+    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
+    .then( (user) => {
+      navigate('UpdateProfile',{'params':params})
+      console.log(user)
+    },(error) => {
+      alert(error.message)
+    })
+    
    console.log(JSON.stringify(params))
   }
   radioSelected(arg) {
@@ -66,6 +74,7 @@ export default class App extends Component {
               type="email"
               placeholder="Email"
               style={styles.textBox}
+              autoCapitalize="none"
               onChangeText={(email) => this.setState({email})}
               value={this.state.email}
               ref = "email"

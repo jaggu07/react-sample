@@ -3,122 +3,10 @@ import { View, Image,Text,StyleSheet,ScrollView,keyString,Button } from "react-n
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Icon } from 'native-base';
-class NotificationDetails extends Component {
-    static navigationOptions = {
-        title: 'Notification Details',
-      };
-    render() {
-        
-        return (
-            
-            <View style={styles.container}>
-                
- 
-                <Card>
-                <ScrollView>
-                        <Card>
-                        <Grid style={styles.Compydetails}>
-                            <Col size={20}><Text style={styles.Iconimg}><Image
-							style={styles.editImage}
-							source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
-							
-						/>	</Text></Col>
-                            <Col size={75} style={{marginLeft:'3%'}}>
-                            <Text style={styles.JobName}>Andriod Developer</Text>       
-                            <Text style={styles.CompanyName}>IRtrends pvt ltd</Text>
-                            <Text style={styles.CompanyAddress}>Company Name- Chennai</Text></Col>
-                        </Grid>   
-                        <Grid>
-                            <Col style={styles.salaryDetails}>
-                            <Icon name='ios-briefcase' style={{color:'#384850'}}/>
-					
-                            <Text style={styles.CompanyName}>0-10 yrs</Text>  
-                            </Col>
-                            <Col style={styles.salaryDetails}>
-                            <Icon name="ios-pin" style={{color:'#384850'}}/>
-                            <Text style={styles.CompanyName}>Chennai</Text>  
-                            </Col>
-                            <Col style={styles.salaryDetails}>
-                            <Icon name="ios-cash" style={{color:'#384850'}}/>
-                            <Text style={styles.CompanyName}>10k-15k</Text>  
-                            </Col>
-                        </Grid>      
-                        
-                      </Card>
-                      
-                      <Text  style={styles.subHeader}>Job Description</Text>
-                
-                <Text style={styles.JobSummery}>We are looking for an Android developer responsible for
-                 the development and maintenance of applications. To ensure the best possible performance, 
-                 quality, and responsiveness of the application</Text>
-                
-                 <Text  style={styles.subHeader}>Responsibilities and Duties</Text>
 
-                <View style={ styles.column }>
+import HeaderComponent from '../components/headerComponent';
 
-                    <View style={ styles.row }>
-                        <View style={ styles.bullet }>
-                            <Text>{'\u2022' + " "}</Text>
-                        </View>
-                        <View style={ styles.bulletText }>
-                            
-                                <Text style={ styles.normalText }>We are looking for an Android developer responsible for
-                 the development and maintenance of applications.</Text>
-                 
-                           
-                        </View>
-                    </View>
-
-                    <View style={ styles.row }>
-                        <View style={ styles.bullet }>
-                            <Text>{'\u2022' + " "}</Text>
-                        </View>
-                        <View style={ styles.bulletText }>
-                            
-                                <Text style={ styles.normalText }>We are looking for an Android developer responsible for
-                 the development and maintenance of applications.</Text>
-                 
-                           
-                        </View>
-                    </View>
-
-                    <View style={ styles.row }>
-                        <View style={ styles.bullet }>
-                            <Text>{'\u2022' + " "}</Text>
-                        </View>
-                        <View style={ styles.bulletText }>
-                            
-                                <Text style={ styles.normalText }>We are looking for an Android developer responsible for
-                 the development and maintenance of applications.</Text>
-                 
-                           
-                        </View>
-                    </View>
-
-                    <View style={ styles.row }>
-                        <View style={ styles.bullet }>
-                            <Text>{'\u2022' + " "}</Text>
-                        </View>
-                        <View style={ styles.bulletText }>
-                            
-                                <Text style={ styles.normalText }>We are looking for an Android developer responsible for
-                 the development and maintenance of applications.</Text>
-                 
-                           
-                        </View>
-                    </View>
-
-                </View>
-               <Text  style={styles.subHeader}>Skills</Text>
-                <Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
-                
-                <Text  style={styles.subHeader}>Experience</Text>
-
-                <Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
-                <Text style={ styles.Experience }>Java: 1 year (Required)</Text>
-
-                <Text  style={styles.subHeader}>Education</Text>
-
+<<<<<<< HEAD
                 <Text style={ styles.Education }>Bachelor's (Required)</Text>
 
                 <View style={styles.ButtonRow}>
@@ -145,7 +33,127 @@ class NotificationDetails extends Component {
             </View>
         );
     }
+=======
+class NotificationDetails extends Component {
+	static navigationOptions = {
+			header: PlayerScreen = ({ navigation }) => (<HeaderComponent title={ 'Notification Details' } back={'arrow-back'} navigationData={navigation}/>)
+	};
+	render() {
+		return (
+		<View style={styles.container}>
+			<Card>
+					<ScrollView>
+						<Card>
+							<Grid style={styles.Compydetails}>
+								<Col size={25}>
+									<Image
+									style={styles.editImage}
+									source={{uri: 'https://www.torrejoncillotodonoticias.com/wp-content/uploads/2011/05/android-icon.png'}}
+									/>
+								</Col>
+								<Col size={75} style={{marginLeft:'3%'}}>
+									<Text style={styles.JobName}>Andriod Developer</Text>       
+									<Text style={styles.CompanyName}>IRtrends pvt ltd</Text>
+									<Text style={styles.CompanyAddress}>Company Name- Chennai</Text>
+								</Col>
+							</Grid>   
+							<Grid>
+								<Col style={styles.salaryDetails}>
+									<Icon name='ios-briefcase' style={{color:'#384850'}}/>
+									<Text style={styles.CompanyName}>0-10 yrs</Text>  
+								</Col>
+								<Col style={styles.salaryDetails}>
+									<Icon name="ios-pin" style={{color:'#384850'}}/>
+									<Text style={styles.CompanyName}>Chennai</Text>  
+								</Col>
+								<Col style={styles.salaryDetails}>
+									<Icon name="ios-cash" style={{color:'#384850'}}/>
+									<Text style={styles.CompanyName}>10k-15k</Text>  
+								</Col>
+							</Grid>      
+						</Card>
+					<Text  style={styles.subHeader}>Job Description</Text>
+					<Text style={styles.JobSummery}>We are looking for an Android developer responsible for
+					the development and maintenance of applications. To ensure the best possible performance, 
+					quality, and responsiveness of the application</Text>
+					<Text  style={styles.subHeader}>Responsibilities and Duties</Text>
+					<View style={ styles.column }>
+						<View style={ styles.row }>
+							<View style={ styles.bullet }>
+								<Text>{'\u2022' + " "}</Text>
+							</View>
+							<View style={ styles.bulletText }>
+								<Text style={ styles.normalText }>We are looking for an Android developer responsible for
+							the development and maintenance of applications.</Text>
+							</View>
+						</View>
+						<View style={ styles.row }>
+							<View style={ styles.bullet }>
+								<Text>{'\u2022' + " "}</Text>
+							</View>
+							<View style={ styles.bulletText }>
+								<Text style={ styles.normalText }>We are looking for an Android developer responsible for
+							the development and maintenance of applications.</Text>
+							</View>
+						</View>
+						<View style={ styles.row }>
+							<View style={ styles.bullet }>
+								<Text>{'\u2022' + " "}</Text>
+							</View>
+							<View style={ styles.bulletText }>
+								<Text style={ styles.normalText }>We are looking for an Android developer responsible for
+							the development and maintenance of applications.</Text>
+							</View>
+						</View>
+						<View style={ styles.row }>
+							<View style={ styles.bullet }>
+								<Text>{'\u2022' + " "}</Text>
+							</View>
+							<View style={ styles.bulletText }>
+								<Text style={ styles.normalText }>We are looking for an Android developer responsible for
+							the development and maintenance of applications.</Text>
+							</View>
+						</View>
+					</View>
+					<Text  style={styles.subHeader}>Skills</Text>
+					<Text style={ styles.Skills }>Html5,Java script,Angular js,Node js</Text>
+					<Text  style={styles.subHeader}>Experience</Text>
+					<Text style={ styles.Experience }>Android development: 1 year (Required)</Text>
+					<Text style={ styles.Experience }>Java: 1 year (Required)</Text>
+					<Text  style={styles.subHeader}>Education</Text>
+					<Text style={ styles.Education }>Bachelor's (Required)</Text>
+					<View style={styles.ButtonRow}>
+						<View style={styles.ButtonColumn}>
+							<Button 
+							title="Accept"
+							color="#841584"
+							onPress={()=>console.log()}
+							/>
+						</View>
+						<View style={styles.ButtonColumn}>
+							<Button
+							title="Decline"
+							color="#841584"
+							onPress={()=>console.log()}
+							/>
+						</View>
+					</View>
+					{/* <Button style={styles.ApplyButton}
+					title="APPLY"
+					color="#841584"
+					/>
+					<Button style={styles.ApplyButton}
+					title="APPLY"
+					color="#841584"
+					/> */}
+					</ScrollView>
+				</Card>
+		</View>
+		);
+	}
+>>>>>>> 800d020a1b047bd4fa74d92fab5f6d2cfe955db7
 }
+
 export default NotificationDetails;
 
 const styles = StyleSheet.create({
@@ -237,8 +245,8 @@ const styles = StyleSheet.create({
         height: 40
       },
       editImage:{
-        width:100,
-        height:100,  
+        width:60,
+        height:60,  
     },
     Iconimg:{
         textAlign:'center',

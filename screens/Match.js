@@ -10,9 +10,13 @@ import Details from './Details';
 import CardStack, { Card } from 'react-native-card-stack-swiper';
 import { CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import { Icon } from 'native-base';
+import { createStackNavigator,} from 'react-navigation';
+import HeaderComponent from '../components/headerComponent';
 
-
-export default class App extends Component {
+class MatchScreen extends Component {
+  static navigationOptions = {
+    header: <HeaderComponent title={ 'Match' } back={'arrow-back'} navigationData={'match'} />
+};
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -28,9 +32,10 @@ export default class App extends Component {
 
           onSwiped={() => console.log('onSwiped')}
           onSwipedLeft={() => console.log('onSwipedLeft')}
+          onSwipedRight={() => console.log('onSwipedRight')}
         >
           <Card style={[styles.card, styles.card1]}>
-            <TouchableOpacity onPress={() => navigate('NotificationDetails')}>
+            <TouchableOpacity onPress={() => navigate('MatchDetails')}>
                 <View style={styles.label}> 
                   <View style={styles.navBar}>
                     <View style={styles.leftContainer}>
@@ -300,7 +305,12 @@ export default class App extends Component {
   }
 }
 
-  
+const Match = createStackNavigator({
+  MatchScreen: MatchScreen,
+  MatchDetails: { screen: Details },
+});
+
+export default  Match;
 
 const styles = StyleSheet.create({
   container: {
@@ -343,7 +353,6 @@ const styles = StyleSheet.create({
   },
   card:{
     width: '100%',
-    height: 400,
     backgroundColor: '#FE474C',
     borderRadius: 5,
     shadowColor: '#000',
