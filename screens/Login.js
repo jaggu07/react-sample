@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Button, Text, Image, Dimensions, Platform } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
 import { login } from '../api/auth';
+import * as firebase from 'firebase';
 
 
 class Login extends Component {
@@ -18,8 +19,14 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     }
-    await login();
-    navigate('matchTab');
+    firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+    .then( (user) => {
+      navigate('matchTab');
+      console.log(user)
+    },(error) => {
+      alert(error.message)
+    })
+   // navigate('matchTab');
    console.log(JSON.stringify(params))
   
   }
@@ -43,6 +50,7 @@ class Login extends Component {
               placeholder="Email"
               style={styles.textBox}
               placeholderTextColor="white"
+              autoCapitalize="none"
               onChangeText={(email) => this.setState({email})}
               value={this.state.email}
               onSubmitEditing={(event) => { 
