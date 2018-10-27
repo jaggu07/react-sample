@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView} from 'react-native';
+import { TextInput, View , Button, StyleSheet, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { Form, Input, InputGroup, ListItem, Text, Radio, Right, Left } from 'native-base';
 import HeaderComponent from '../components/headerComponent';
 import { Icon } from 'react-native-elements';
@@ -14,6 +14,7 @@ export default class App extends Component {
       email:'',
       password:'',
       role: 'Employer',
+      errMsg:''
     };
   }
   handleButtonPress() {
@@ -23,17 +24,30 @@ export default class App extends Component {
       lastName: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
-      role:this.state.role
+      role: this.state.role
     }
-    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
-    .then( (user) => {
+    console.log(JSON.stringify(params))
+    if(this.state.firstName.trim()==""){
+      this.errFunc('Firstname')
+    }else if(this.state.lastName.trim()==""){
+      this.errFunc('Lastname')
+    }else if(this.state.email.trim()==""){
+      this.errFunc('E-mail')
+    }else if(this.state.password.trim()==""){
+      this.errFunc('Password')
+    }else{
+      //alert("fill all")
       navigate('UpdateProfile',{'params':params})
-      console.log(user)
-    },(error) => {
-      alert(error.message)
-    })
-    
-   console.log(JSON.stringify(params))
+    }
+   
+  }
+  errFunc (field){
+    this.setState({errMsg:field+' is required'})
+      setTimeout(() => {
+        this.setState({
+          errMsg: ''
+      })
+    }, 2000);
   }
   radioSelected(arg) {
     this.setState({role : arg});
@@ -112,7 +126,8 @@ export default class App extends Component {
               <Radio selected={this.state.role == 'Employee'} />
             </Right>
           </ListItem>
-        </Form>        
+        </Form>       
+        <Text>{this.state.errMsg}</Text> 
         <Button
           style={{backgroundColor: "rgba(92, 99,216, 1)",
           width: 300,

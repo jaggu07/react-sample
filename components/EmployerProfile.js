@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, ListView,Animated, ScrollView
 import { Form  ,Picker, Input, InputGroup, Textarea, Button } from 'native-base';
 import { Subheader } from 'react-native-material-ui';
 import { Icon } from 'react-native-elements';
+import * as firebase from 'firebase';
+
 var SampleArray = [] ;
 
 class EmployerProfile extends Component {
@@ -12,12 +14,12 @@ class EmployerProfile extends Component {
     
 		this.state = {
 			fadeAnim: new Animated.Value(0),
-      CompanyName: 'Infohawk',
-      Website: 'http:/infohawk.in',
-      email:'John@gmail.com',
-      firstName:'jagan',
-      lastName:'Kumar',
-      mobileNumber:'9688711770',
+      CompanyName: '',
+      Website: '',
+      email:this.props.formdetails.email,
+      firstName: this.props.formdetails.firstName,
+      lastName: this.props.formdetails.lastName,
+      mobileNumber:'',
       AboutCompany:'',
       skills:'',
       test:[],
@@ -29,6 +31,8 @@ class EmployerProfile extends Component {
   }
   
 	componentDidMount () {
+    
+    console.log("employer page",this.props.formdetails)
 		this.state.fadeAnim.setValue(0)
 		Animated.timing(
 			this.state.fadeAnim, // The value to drive
@@ -55,7 +59,14 @@ class EmployerProfile extends Component {
     this.setState({test:SampleArray})
   }
 	handleButtonPress() { 
-		alert("Profile Updated")
+    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.props.formdetails.password)
+    .then( (user) => {
+      
+      console.log(user)
+    },(error) => {
+      alert(error.message)
+    })
+		
   }
 
   render() {

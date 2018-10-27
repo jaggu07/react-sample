@@ -19,6 +19,7 @@ export default class Root extends Component {
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged)
   }
   onAuthStateChanged = (user) => {
+    console.log("user",user)
     this.setState({isAuthenticationReady: true});
     this.setState({isAuthenticated: !!user});
     this.setState({loading: false});

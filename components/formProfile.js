@@ -16,9 +16,9 @@ class FormProfile extends Component {
     var experienceYears = ['Intern','Junior','Mid-level','Senior','Lead']
 		this.state = {
 			fadeAnim: new Animated.Value(0),
-      firstName: 'John',
-      lastName: 'John',
-      email:'John@gmail.com',
+      firstName: this.props.formdetails.firstName,
+      lastName: this.props.formdetails.lastName,
+      email: this.props.formdetails.email,
       experienceYears:experienceYears,
       experience:'Intern',
       summary:'',
@@ -35,6 +35,7 @@ class FormProfile extends Component {
   }
   
 	componentDidMount () {
+    console.log(this.props.formdetails)
 		this.state.fadeAnim.setValue(0)
 		Animated.timing(
 			this.state.fadeAnim, // The value to drive
@@ -78,7 +79,12 @@ class FormProfile extends Component {
     this.setState({test:SampleArray})
   }
 	handleButtonPress() { 
-		alert("Profile Updated")
+		firebase.auth().createUserWithEmailAndPassword(this.state.email, this.props.formdetails.password)
+    .then( (user) => {
+      console.log(user)
+    },(error) => {
+      alert(error.message)
+    })
   }
 
   render() {

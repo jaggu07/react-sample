@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Button, Text, Image, Dimensions, Platform } from "react-native";
+import { View, StyleSheet, Button, Text, Image, ImageBackground, Dimensions, Platform, ScrollView, KeyboardAvoidingView } from "react-native";
 import { Form, Icon, Input, InputGroup } from 'native-base';
 import { login } from '../api/auth';
 import * as firebase from 'firebase';
@@ -22,7 +22,7 @@ class Login extends Component {
     firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
     .then( (user) => {
       navigate('matchTab');
-      console.log(user)
+      //console.log(user)
     },(error) => {
       alert(error.message)
     })
@@ -35,12 +35,15 @@ class Login extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-      <View  style={styles.container1}>
-        <Image
+      <KeyboardAvoidingView >
+        <ScrollView>
+        <ImageBackground
+  
+
             style={styles.imageLogin}
           source={{uri: 'http://www.intrawallpaper.com/static/images/hd-dark-wallpapers-4_CWDKYIC.jpg'}}
-        />    
-      </View>
+        >    
+    
       <View  style={styles.container2}>
         <Form>
           <InputGroup borderType="underline">
@@ -94,6 +97,9 @@ class Login extends Component {
           </Text>
         </Text>
         </View>
+        </ImageBackground>
+        </ScrollView>
+        </KeyboardAvoidingView>
       </View>
     );
   }
@@ -101,14 +107,13 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
+    
   },
-  container1:{
-    flex:2,
-  },
+
   container2:{
-    flex:2,
-    margin:'10%'
+    flex:1,
+    margin:'10%',
+    justifyContent:'center'
   },
   textBox:{
     height: 40, 

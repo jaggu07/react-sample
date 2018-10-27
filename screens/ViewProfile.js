@@ -5,7 +5,7 @@ import EditProfile from'./EditProfile';
 import { Picker, ListItem, Left, Right, List, Body } from "native-base";
 import { logout } from '../api/auth';
 import { Icon, Header } from 'react-native-elements';
-
+import * as firebase from 'firebase';
 import HeaderComponent from '../components/headerComponent';
 
 class ViewProfileScreen extends Component {
@@ -23,7 +23,7 @@ class ViewProfileScreen extends Component {
   }
 
 	async onLogout() {
-		await logout();
+		firebase.auth().signOut()
 		this.props.navigation.navigate('Login');
 	  }
 

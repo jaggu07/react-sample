@@ -6,34 +6,6 @@ import { Icon } from 'native-base';
 
 import HeaderComponent from '../components/headerComponent';
 
-<<<<<<< HEAD
-                <Text style={ styles.Education }>Bachelor's (Required)</Text>
-
-                <View style={styles.ButtonRow}>
-                    <View style={styles.ButtonColumn}>
-                    <Button 
-                            title="Accept"
-                            color="#841584"
-                            onPress={()=>console.log()}
-                            />
-                    </View>
-                    <View style={styles.ButtonColumn}>
-                    <Button
-                            title="Decline"
-                            color="#841584"
-                            onPress={()=>console.log()}
-                            />
-                    </View>
-                </View>
-
-                </ScrollView>
-                </Card>
-
-                
-            </View>
-        );
-    }
-=======
 class NotificationDetails extends Component {
 	static navigationOptions = {
 			header: PlayerScreen = ({ navigation }) => (<HeaderComponent title={ 'Notification Details' } back={'arrow-back'} navigationData={navigation}/>)
@@ -151,7 +123,6 @@ class NotificationDetails extends Component {
 		</View>
 		);
 	}
->>>>>>> 800d020a1b047bd4fa74d92fab5f6d2cfe955db7
 }
 
 export default NotificationDetails;

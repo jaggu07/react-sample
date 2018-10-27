@@ -12,14 +12,14 @@ class UpdateProfile extends Component {
 			return (
 				<View style={styles.container}>
 					<HeaderComponent title={ 'Update Profile' } back={'arrow-back'} navigationData={this.props.navigation}/>
-					<EmployerProfile />
+					<EmployerProfile formdetails={ navParams }/>
 				</View>
 			);
 		}else{
 			return (
 				<View style={styles.container}>
 					<HeaderComponent title={ 'Update Profile' } back={'arrow-back'} navigationData={this.props.navigation}/>
-					<FormProfile />
+					<FormProfile formdetails={ navParams }/>
 				</View> 
 			);
 		}
